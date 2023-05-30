@@ -1,48 +1,56 @@
-//variables
-
-let user = 'John Doe';
-console.log(user);
-
-const student = 'Darya';
-console.log(student);
-
-// now user is 'Darya'
-user = student;
-console.log(user);
-
-// primitives
-let test = 1;
-test++;
-test += '1';
-console.log(test); // now test = '21'
-
-test--;
-console.log(test); // now test = 1
-
-test = !!test;
-console.log(test); // now test = true
-
-// arrays
-let arr = [2, 3, 5, 8];
-let product = 1;
-
-for (let i = 0; i < arr.length; i++) {
-  product *= arr[i];
-}
-
-console.log(`Product is ${product}`);
-
-console.log('Numbers more than 5 and less than 10: ');
-arr = [2, 5, 8, 15, 0, 6, 20, 3];
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i] > 5 && arr[i] < 10) {
-    console.log(arr[i]);
+const palindrome = (word) => {
+  for (let i = 0; i < Math.floor(word.length / 2); i++) {
+    if (word[i] !== word[word.length - i - 1]) {
+      return false;
+    }
   }
-}
+  return true;
+};
 
-console.log('Even numbers: ');
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i] % 2 === 0) {
-    console.log(arr[i]);
+const minClassic = (a, b) => {
+  if (a <= b) {
+    return a;
   }
-}
+
+  return b;
+};
+
+const maxClassic = (a, b) => {
+  if (a >= b) {
+    return a;
+  }
+
+  return b;
+};
+
+const minTernary = (a, b) => (a <= b ? a : b);
+const maxTernary = (a, b) => (a >= b ? a : b);
+
+const arr = [9, 100, 74, 71, 66, 38, 30, 56, 20, 2];
+
+const replaceZeros = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 10 === 0) {
+      let zeros = 0;
+      let currNumber = arr[i];
+
+      while (currNumber % 10 === 0) {
+        zeros++;
+        currNumber /= 10;
+      }
+
+      currNumber = arr[i];
+      currNumber /= 10 ** zeros;
+
+      for (let j = 0; j < zeros; j++) {
+        currNumber += 'zero';
+      }
+
+      arr[i] = currNumber;
+    }
+  }
+
+  return arr;
+};
+
+console.log(replaceZeros(arr));
