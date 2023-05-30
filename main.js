@@ -13,7 +13,8 @@ console.log(user);
 // primitives
 let test = 1;
 test++;
-console.log(test); // now test = 2
+test += '1';
+console.log(test); // now test = '21'
 
 test--;
 console.log(test); // now test = 1
