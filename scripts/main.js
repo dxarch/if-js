@@ -1,24 +1,49 @@
-import { sum, getColor, colors } from './functions.js';
+import { parseDate, findDataByQuery } from './functions.js';
 
-console.log(sum(2)(5));
+const date = '2020-11-26';
+// console.log(parseDate(date));
 
-const text1 = document.getElementById('text1');
-const text2 = document.getElementById('text2');
-const text3 = document.getElementById('text3');
+const data = [
+  {
+    country: 'Russia',
+    city: 'Saint Petersburg',
+    hotel: 'Hotel Leopold',
+  },
+  {
+    country: 'Spain',
+    city: 'Santa Cruz de Tenerife',
+    hotel: 'Apartment Sunshine',
+  },
+  {
+    country: 'Slowakia',
+    city: 'Vysokie Tatry',
+    hotel: 'Villa Kunerad',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hostel Friendship',
+  },
+  {
+    country: 'Indonesia',
+    city: 'Bali',
+    hotel: 'Ubud Bali Resort&SPA',
+  },
+  {
+    country: 'Netherlands',
+    city: 'Rotterdam',
+    hotel: 'King Kong Hostel',
+  },
+  {
+    country: 'Marocco',
+    city: 'Ourika',
+    hotel: 'Rokoko Hotel',
+  },
+  {
+    country: 'Germany',
+    city: 'Berlin',
+    hotel: 'Hotel Rehberge Berlin Mitte',
+  },
+];
 
-const clicks = [0, 0, 0];
-
-text1.addEventListener('click', () => {
-  clicks[0] += 1;
-  text1.style.color = getColor(colors, clicks[0]);
-});
-
-text2.addEventListener('click', () => {
-  clicks[1] += 1;
-  text2.style.color = getColor(colors, clicks[1]);
-});
-
-text3.addEventListener('click', () => {
-  clicks[2] += 1;
-  text3.style.color = getColor(colors, clicks[2]);
-});
+console.log(findDataByQuery(data, 'Hotel'));

@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1686943919012" clover="3.2.0">
-  <project timestamp="1686943919012" name="All files">
-    <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="7" coveredelements="7" complexity="0" loc="4" ncloc="4" packages="1" files="1" classes="1"/>
+<coverage generated="1686949478491" clover="3.2.0">
+  <project timestamp="1686949478491" name="All files">
+    <metrics statements="11" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0" elements="15" coveredelements="2" complexity="0" loc="11" ncloc="11" packages="1" files="1" classes="1"/>
     <file name="functions.js" path="D:\courses\intellect fox\if-js\scripts\functions.js">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="11" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <line num="1" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
+      <line num="2" count="0" type="stmt"/>
+      <line num="3" count="0" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="9" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>
