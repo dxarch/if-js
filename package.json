@@ -7,7 +7,7 @@
     "test": "jest",
     "prepare": "husky install",
     "lint": "prettier --write . && eslint scripts/main.js --fix",
-    "prepublish": "npm run lint"
+    "prepublish": "npm run test && npm run lint"
   },
   "repository": {
     "type": "git",
