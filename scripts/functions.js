@@ -1,7 +1,7 @@
 const parseDate = (date) => {
   const regexp = /\b(\d{2,4})-(0?[1-9]|\d{2})-(0?[1-9]|\d{2})\b/;
   if (!regexp.test(date)) {
-    throw new Error('Input date doesn\'t match format!');
+    throw new Error("Input date doesn't match format!");
   }
 
   return date.replace(regexp, '$3.$2.$1');
