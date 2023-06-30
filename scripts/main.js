@@ -1,9 +1,11 @@
-import { isPalindrome, findDataByQuery, countryCity } from './functions.js';
+import {isPalindrome, findDataByQuery, countryCity, getCalendarMonth} from './functions.js';
 
-// const word = "Madam In Eden, I'm Adam";
-// console.log(isPalindrome(word));
+const word = 'racecar';
+console.log(isPalindrome(word));
 
-// const query = "usa";
-// console.log(findDataByQuery(query));
+const query = "usa";
+console.log(findDataByQuery(query));
 
 console.log(countryCity());
+
+console.log(getCalendarMonth());
