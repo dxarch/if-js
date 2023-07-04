@@ -1,57 +1,53 @@
 import { hotels } from './array.js';
 
-const isPalindrome = (word) => {
-  const cleanWord = word.replaceAll(/[.,#!?$%&';:\-_()\s]/g, '').toLowerCase();
-  return (
-    cleanWord.slice(0, cleanWord.length / 2) ===
-    cleanWord
-      .slice(-cleanWord.length / 2)
-      .split('')
-      .reverse()
-      .join('')
-  );
-};
 
-const findDataByQuery = (query) => {
-  return hotels
-    .filter((obj) =>
-      Object.values(obj)
-        .map((v) => v.toLowerCase())
-        .includes(query.toLowerCase()),
-    )
-    .map((obj) => Object.values(obj).reverse())
-    .reduce((accum, currItem) => accum.concat(currItem), []);
-};
+const deepEqual = (objA, objB) => {
+  const akeys = Object.keys(objA).sort((a, b) => a > b ? 1 : -1);
+  const bkeys = Object.keys(objB).sort((a, b) => a > b ? 1 : -1);
 
-const countryCity = () => {
-  const result = {};
+  if (akeys.length !== bkeys.length) {
+    return false;
+  }
 
-  hotels.forEach((obj) => {
-    if (result[obj.country] === undefined) {
-      result[obj.country] = [];
-      if (!result[obj.country].includes(obj.city)) {
-        result[obj.country].push(obj.city);
-      }
+  akeys.forEach((key) => {
+    const aval = objA[key];
+    const bval = objB[key];
+
+    const areObjects = typeof aval === 'object' && typeof bval === 'object';
+
+    if (!areObjects && aval !== bval || areObjects && !deepEqual(aval, bval)) {
+      return false;
     }
   });
 
-  return result;
+  return true;
 };
 
-const getCalendarMonth = (daysInMonth = 30, daysInWeek = 7, firstDayInMonthIdx = 4) => {
+
+const getCalendarMonth = (
+  daysInMonth = 30,
+  daysInWeek = 7,
+  firstDayInMonthIdx = 4,
+) => {
   if (firstDayInMonthIdx > daysInWeek) {
-    throw new Error("Wrong first day index!");
+    throw new Error('Wrong first day index!');
   }
 
   const weeks = Math.round(daysInMonth / daysInWeek) + 1;
-  const calendar = Array(weeks).fill().map(() => Array(daysInWeek).fill(0));
+  const calendar = Array(weeks)
+    .fill()
+    .map(() => Array(daysInWeek).fill(0));
 
   calendar.forEach((week, weekIdx) => {
     week.forEach((day, dayIdx) => {
-      if (weekIdx > 0){
-        week[dayIdx] = (calendar[weekIdx - 1][dayIdx] + daysInWeek) % daysInMonth || daysInMonth;
+      if (weekIdx > 0) {
+        week[dayIdx] =
+          (calendar[weekIdx - 1][dayIdx] + daysInWeek) % daysInMonth ||
+          daysInMonth;
       } else {
-        week[dayIdx] = (daysInMonth - firstDayInMonthIdx + dayIdx + 1) % daysInMonth || daysInMonth;
+        week[dayIdx] =
+          (daysInMonth - firstDayInMonthIdx + dayIdx + 1) % daysInMonth ||
+          daysInMonth;
       }
     });
   });
@@ -59,4 +55,4 @@ const getCalendarMonth = (daysInMonth = 30, daysInWeek = 7, firstDayInMonthIdx =
   return calendar;
 };
 
-export { isPalindrome, findDataByQuery, countryCity, getCalendarMonth };
+export { getCalendarMonth, deepEqual };
