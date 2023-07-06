@@ -1,69 +1,79 @@
-const parseDate = (date) => {
-  const regexp = /\b(\d{2,4})-(0?[1-9]|\d{2})-(0?[1-9]|\d{2})\b/;
-  if (!regexp.test(date)) {
-    throw new Error("Input date doesn't match format!");
+const deepEqual = (objA, objB) => {
+  const akeys = Object.keys(objA).sort((a, b) => (a > b ? 1 : -1));
+  const bkeys = Object.keys(objB).sort((a, b) => (a > b ? 1 : -1));
+
+  if (akeys.length !== bkeys.length) {
+    return false;
   }
 
-  return date.replace(regexp, '$3.$2.$1');
-};
+  akeys.forEach((key) => {
+    const aval = objA[key];
+    const bval = objB[key];
 
-const data = [
-  {
-    country: 'Russia',
-    city: 'Saint Petersburg',
-    hotel: 'Hotel Leopold',
-  },
-  {
-    country: 'Spain',
-    city: 'Santa Cruz de Tenerife',
-    hotel: 'Apartment Sunshine',
-  },
-  {
-    country: 'Slowakia',
-    city: 'Vysokie Tatry',
-    hotel: 'Villa Kunerad',
-  },
-  {
-    country: 'Germany',
-    city: 'Berlin',
-    hotel: 'Hostel Friendship',
-  },
-  {
-    country: 'Indonesia',
-    city: 'Bali',
-    hotel: 'Ubud Bali Resort&SPA',
-  },
-  {
-    country: 'Netherlands',
-    city: 'Rotterdam',
-    hotel: 'King Kong Hostel',
-  },
-  {
-    country: 'Marocco',
-    city: 'Ourika',
-    hotel: 'Rokoko Hotel',
-  },
-  {
-    country: 'Germany',
-    city: 'Berlin',
-    hotel: 'Hotel Rehberge Berlin Mitte',
-  },
-];
+    const areObjects = typeof aval === 'object' && typeof bval === 'object';
 
-const findDataByQuery = (query) => {
-  const outData = [];
-
-  for (let i = 0; i < data.length; i++) {
-    const objValues = Object.values(data[i]);
-
-    for (let j = 0; j < objValues.length; j++) {
-      if (objValues[j].toLowerCase().includes(query.toLowerCase())) {
-        outData.push(...objValues);
-      }
+    if (
+      (!areObjects && aval !== bval) ||
+      (areObjects && !deepEqual(aval, bval))
+    ) {
+      return false;
     }
-  }
+  });
 
-  return outData;
+  return true;
 };
 
-export { parseDate, findDataByQuery };
+const getCalendarMonth = (
+  daysInMonth = 30,
+  daysInWeek = 7,
+  firstDayInMonthIdx = 4,
+  checkInDate = '06.11.1973',
+  checkOutDate = '14.11.1973',
+) => {
+  if (firstDayInMonthIdx > daysInWeek) {
+    throw new Error('Wrong first day index!');
+  }
+
+  const weeks = Math.round(daysInMonth / daysInWeek) + 1;
+  const calendar = [];
+
+  for (let w = 0; w < weeks; w++) {
+    const week = [];
+
+    for (let d = 0; d < daysInWeek; d++){
+      let day = 0;
+      const dayObj = {
+        dayOfMonth: 0,
+        notCurrentMonth: false,
+        selectedDay: false,
+      };
+
+      if (w > 0) {
+        day = calendar[w - 1][d].dayOfMonth + daysInWeek;
+      } else {
+        day = daysInMonth - firstDayInMonthIdx + d + 1;
+      }
+
+      if (day > daysInMonth) {
+        day = day % daysInMonth || daysInMonth;
+      }
+
+      if (day > daysInWeek * (w + 1) || day < w * d){
+        dayObj.notCurrentMonth = true;
+      }
+
+      dayObj.dayOfMonth = day;
+
+      if (day === Number(checkInDate.split('/')[0]) || day === Number(checkOutDate.split('/')[0])) {
+        dayObj.selectedDay = true;
+      }
+
+      week.push(dayObj);
+    }
+    calendar.push(week);
+  }
+
+  return calendar;
+};
+
+export { getCalendarMonth, deepEqual };
