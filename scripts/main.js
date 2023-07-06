@@ -1,7 +1,4 @@
-import {
-  getCalendarMonth,
-  deepEqual,
-} from './functions.js';
+import { getCalendarMonth, deepEqual } from './functions.js';
 
 const obj1 = {
   a: 'a',
@@ -13,7 +10,6 @@ const obj1 = {
     },
   },
 };
-
 
 const obj2 = {
   b: {
@@ -38,3 +34,5 @@ const obj3 = {
 
 console.log(deepEqual(obj1, obj2));
 console.log(deepEqual(obj1, obj3));
+
+console.log(getCalendarMonth());
