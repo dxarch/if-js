@@ -41,20 +41,30 @@ const countryCity = (arr) => {
   return result;
 };
 
-const getCalendarMonth = (daysInMonth = 30, daysInWeek = 7, firstDayInMonthIdx = 4) => {
+const getCalendarMonth = (
+  daysInMonth = 30,
+  daysInWeek = 7,
+  firstDayInMonthIdx = 4,
+) => {
   if (firstDayInMonthIdx > daysInWeek) {
-    throw new Error("Wrong first day index!");
+    throw new Error('Wrong first day index!');
   }
 
   const weeks = Math.round(daysInMonth / daysInWeek) + 1;
-  const calendar = Array(weeks).fill().map(() => Array(daysInWeek).fill(0));
+  const calendar = Array(weeks)
+    .fill()
+    .map(() => Array(daysInWeek).fill(0));
 
   calendar.forEach((week, weekIdx) => {
     week.forEach((day, dayIdx) => {
-      if (weekIdx > 0){
-        week[dayIdx] = (calendar[weekIdx - 1][dayIdx] + daysInWeek) % daysInMonth || daysInMonth;
+      if (weekIdx > 0) {
+        week[dayIdx] =
+          (calendar[weekIdx - 1][dayIdx] + daysInWeek) % daysInMonth ||
+          daysInMonth;
       } else {
-        week[dayIdx] = (daysInMonth - firstDayInMonthIdx + dayIdx + 1) % daysInMonth || daysInMonth;
+        week[dayIdx] =
+          (daysInMonth - firstDayInMonthIdx + dayIdx + 1) % daysInMonth ||
+          daysInMonth;
       }
     });
   });
