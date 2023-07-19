@@ -1,7 +1,6 @@
 import { deepEqual, getCalendarMonth } from '../scripts/functions';
 
 test('Get calendar month without arguments returns default calendar', () => {
-
   const output = [
     [
       { dayOfMonth: 27, notCurrentMonth: true, selectedDay: false },
@@ -50,7 +49,7 @@ test('Get calendar month without arguments returns default calendar', () => {
     ],
   ];
 
-  expect(getCalendarMonth()).toEqual(output);
+  expect(getCalendarMonth()).toStrictEqual(output);
 });
 
 test('Objects are equal', () => {
@@ -104,4 +103,3 @@ test('Objects are not equal', () => {
 
   expect(deepEqual(a, b)).toBe(false);
 });
-
