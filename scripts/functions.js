@@ -1,69 +1,65 @@
-const parseDate = (date) => {
-  const regexp = /\b(\d{2,4})-(0?[1-9]|\d{2})-(0?[1-9]|\d{2})\b/;
-  if (!regexp.test(date)) {
-    throw new Error("Input date doesn't match format!");
-  }
-
-  return date.replace(regexp, '$3.$2.$1');
+const isPalindrome = (word) => {
+  const cleanWord = word.replaceAll(/[.,#!?$%&';:\-_()\s]/g, '').toLowerCase();
+  return (
+    cleanWord.slice(0, cleanWord.length / 2) ===
+    cleanWord
+      .slice(-cleanWord.length / 2)
+      .split('')
+      .reverse()
+      .join('')
+  );
 };
 
-const data = [
-  {
-    country: 'Russia',
-    city: 'Saint Petersburg',
-    hotel: 'Hotel Leopold',
-  },
-  {
-    country: 'Spain',
-    city: 'Santa Cruz de Tenerife',
-    hotel: 'Apartment Sunshine',
-  },
-  {
-    country: 'Slowakia',
-    city: 'Vysokie Tatry',
-    hotel: 'Villa Kunerad',
-  },
-  {
-    country: 'Germany',
-    city: 'Berlin',
-    hotel: 'Hostel Friendship',
-  },
-  {
-    country: 'Indonesia',
-    city: 'Bali',
-    hotel: 'Ubud Bali Resort&SPA',
-  },
-  {
-    country: 'Netherlands',
-    city: 'Rotterdam',
-    hotel: 'King Kong Hostel',
-  },
-  {
-    country: 'Marocco',
-    city: 'Ourika',
-    hotel: 'Rokoko Hotel',
-  },
-  {
-    country: 'Germany',
-    city: 'Berlin',
-    hotel: 'Hotel Rehberge Berlin Mitte',
-  },
-];
+const findDataByQuery = (arr, query) => {
+  return arr
+    .filter((obj) =>
+      Object.values(obj)
+        .map((v) => v.toLowerCase())
+        .includes(query.toLowerCase()),
+    )
+    .map((obj) => Object.values(obj).reverse())
+    .reduce((accum, currItem) => accum.concat(currItem), []);
+};
 
-const findDataByQuery = (query) => {
-  const outData = [];
+const countryCity = (arr) => {
+  const result = {};
 
-  for (let i = 0; i < data.length; i++) {
-    const objValues = Object.values(data[i]);
-
-    for (let j = 0; j < objValues.length; j++) {
-      if (objValues[j].toLowerCase().includes(query.toLowerCase())) {
-        outData.push(...objValues);
-      }
+  arr.forEach((obj) => {
+    const { country, city } = obj;
+    if (country === undefined || city === undefined) {
+      throw new Error('Wrong object structure!');
     }
-  }
 
-  return outData;
+    if (result[country] === undefined) {
+      result[country] = [];
+    }
+    if (!result[country].includes(city)) {
+      result[country].push(city);
+    }
+  });
+
+  return result;
 };
 
-export { parseDate, findDataByQuery };
+const getCalendarMonth = (daysInMonth = 30, daysInWeek = 7, firstDayInMonthIdx = 4) => {
+  if (firstDayInMonthIdx > daysInWeek) {
+    throw new Error("Wrong first day index!");
+  }
+
+  const weeks = Math.round(daysInMonth / daysInWeek) + 1;
+  const calendar = Array(weeks).fill().map(() => Array(daysInWeek).fill(0));
+
+  calendar.forEach((week, weekIdx) => {
+    week.forEach((day, dayIdx) => {
+      if (weekIdx > 0){
+        week[dayIdx] = (calendar[weekIdx - 1][dayIdx] + daysInWeek) % daysInMonth || daysInMonth;
+      } else {
+        week[dayIdx] = (daysInMonth - firstDayInMonthIdx + dayIdx + 1) % daysInMonth || daysInMonth;
+      }
+    });
+  });
+
+  return calendar;
+};
+
+export { isPalindrome, findDataByQuery, countryCity, getCalendarMonth };

@@ -1,5 +1,12 @@
-import { parseDate, findDataByQuery } from './functions.js';
+import {isPalindrome, findDataByQuery, countryCity, getCalendarMonth} from './functions.js';
+import {hotels} from "./array.js";
 
-const date = '2020.11.26';
-console.log(parseDate(date));
-console.log(findDataByQuery('Hotel'));
+const word = 'racecar';
+console.log(isPalindrome(word));
+
+const query = "usa";
+console.log(findDataByQuery(hotels, query));
+
+console.log(countryCity(hotels));
+
+console.log(getCalendarMonth());
