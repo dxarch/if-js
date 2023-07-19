@@ -1,4 +1,5 @@
-import {isPalindrome, findDataByQuery, countryCity, getCalendarMonth} from '../scripts/functions';
+import {isPalindrome, findDataByQuery, countryCity, getCalendarMonth} from '../scripts/functions.js';
+import {hotels} from "../scripts/array.js";
 
 test('Racecar is a palindrome', () => {
   expect(isPalindrome('racecar')).toBe(true);
@@ -9,12 +10,12 @@ test('"Was it a car or a cat I saw?" is a palindrome', () => {
 });
 
 test("Wrong query returns empty array", () => {
-  expect(findDataByQuery('qwerty')).toBe([]);
+  expect(findDataByQuery(hotels, 'qwerty')).toBe([]);
 });
 
 test('"usa" query returns [\'USA\', \'Chicago\', \'Virgin Hotel\', ' +
     '\'USA\', \'Hawaii\', \'Waikiki Resort Hotel\', \'USA\', \'Miami\', \'Mandarin Oriental\']', () => {
-  expect(findDataByQuery('usa')).toBe(['USA', 'Chicago', 'Virgin Hotel', 'USA', 'Hawaii',
+  expect(findDataByQuery(hotels, 'usa')).toBe(['USA', 'Chicago', 'Virgin Hotel', 'USA', 'Hawaii',
                                                     'Waikiki Resort Hotel', 'USA', 'Miami', 'Mandarin Oriental']);
 });
 
@@ -25,13 +26,23 @@ test('Country-cities object is {\n' +
     '   USA: [\'Chicago\', \'Hawaii\', \'Miami\'],\n' +
     '   Ukraine: [\'Kyiv\']\n' +
     '}', () => {
-  expect(countryCity()).toBe({
+  expect(countryCity(hotels)).toBe({
     Australia: ['Sydney'],
     Germany: ['Berlin', 'Hamburg'],
     Italy: ['Florence', 'Rome'],
     USA: ['Chicago', 'Hawaii', 'Miami'],
     Ukraine: ['Kyiv'],
   });
+});
+
+test("Wrong object in array raises an error", () => {
+    const testArr = [
+        {
+            a: 1,
+            name: 'Sam',
+        },
+    ];
+    expect(() => countryCity(testArr)).toThrow('Wrong object structure!');
 });
 
 test('Get calendar month without arguments returns default calendar', () => {

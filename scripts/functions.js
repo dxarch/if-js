@@ -1,5 +1,3 @@
-import { hotels } from './array.js';
-
 const isPalindrome = (word) => {
   const cleanWord = word.replaceAll(/[.,#!?$%&';:\-_()\s]/g, '').toLowerCase();
   return (
@@ -12,8 +10,8 @@ const isPalindrome = (word) => {
   );
 };
 
-const findDataByQuery = (query) => {
-  return hotels
+const findDataByQuery = (arr, query) => {
+  return arr
     .filter((obj) =>
       Object.values(obj)
         .map((v) => v.toLowerCase())
@@ -23,15 +21,20 @@ const findDataByQuery = (query) => {
     .reduce((accum, currItem) => accum.concat(currItem), []);
 };
 
-const countryCity = () => {
+const countryCity = (arr) => {
   const result = {};
 
-  hotels.forEach((obj) => {
-    if (result[obj.country] === undefined) {
-      result[obj.country] = [];
-      if (!result[obj.country].includes(obj.city)) {
-        result[obj.country].push(obj.city);
-      }
+  arr.forEach((obj) => {
+    const { country, city } = obj;
+    if (country === undefined || city === undefined) {
+      throw new Error('Wrong object structure!');
+    }
+
+    if (result[country] === undefined) {
+      result[country] = [];
+    }
+    if (!result[country].includes(city)) {
+      result[country].push(city);
     }
   });
 
