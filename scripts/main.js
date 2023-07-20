@@ -21,6 +21,7 @@ const obj2 = {
   },
   a: 'a',
 };
+
 const obj3 = {
   a: {
     c: {
@@ -34,5 +35,4 @@ const obj3 = {
 
 console.log(deepEqual(obj1, obj2));
 console.log(deepEqual(obj1, obj3));
-
 console.log(getCalendarMonth());
