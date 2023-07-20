@@ -2,11 +2,11 @@
   "name": "if-js",
   "version": "1.0.0",
   "description": "",
-  "main": "scripts/main.js",
+  "main": "entities/main.js",
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
-    "lint": "prettier --write . && eslint scripts/main.js --fix",
+    "lint": "prettier --write . && eslint entities/main.js --fix",
     "prepublish": "npm run test && npm run lint"
   },
   "repository": {
