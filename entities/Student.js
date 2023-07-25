@@ -1,7 +1,12 @@
 import User from './User.js';
 class Student extends User {
   constructor({ admissionYear, courseName, ...props }) {
-    if (!('firstName' in props) || !('lastName' in props) || admissionYear === undefined || courseName === undefined) {
+    if (
+      !('firstName' in props) ||
+      !('lastName' in props) ||
+      admissionYear === undefined ||
+      courseName === undefined
+    ) {
       throw new Error('Required properties are missing!');
     }
     super(props);
