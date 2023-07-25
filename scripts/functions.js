@@ -1,75 +1,82 @@
-const isPalindrome = (word) => {
-  const cleanWord = word.replaceAll(/[.,#!?$%&';:\-_()\s]/g, '').toLowerCase();
-  return (
-    cleanWord.slice(0, cleanWord.length / 2) ===
-    cleanWord
-      .slice(-cleanWord.length / 2)
-      .split('')
-      .reverse()
-      .join('')
-  );
-};
+const deepEqual = (objA, objB) => {
+  const akeys = Object.keys(objA).sort((a, b) => (a > b ? 1 : -1));
+  const bkeys = Object.keys(objB).sort((a, b) => (a > b ? 1 : -1));
 
-const findDataByQuery = (arr, query) => {
-  return arr
-    .filter((obj) =>
-      Object.values(obj)
-        .map((v) => v.toLowerCase())
-        .includes(query.toLowerCase()),
-    )
-    .map((obj) => Object.values(obj).reverse())
-    .reduce((accum, currItem) => accum.concat(currItem), []);
-};
+  if (akeys.length !== bkeys.length) {
+    return false;
+  }
 
-const countryCity = (arr) => {
-  const result = {};
+  for (const key of akeys) {
+    const aval = objA[key];
+    const bval = objB[key];
 
-  arr.forEach((obj) => {
-    const { country, city } = obj;
-    if (country === undefined || city === undefined) {
-      throw new Error('Wrong object structure!');
+    const areObjects = typeof aval === 'object' && typeof bval === 'object';
+
+    if (
+      (!areObjects && aval !== bval) ||
+      (areObjects && !deepEqual(aval, bval))
+    ) {
+      return false;
     }
+  }
 
-    if (result[country] === undefined) {
-      result[country] = [];
-    }
-    if (!result[country].includes(city)) {
-      result[country].push(city);
-    }
-  });
-
-  return result;
+  return true;
 };
 
 const getCalendarMonth = (
   daysInMonth = 30,
   daysInWeek = 7,
   firstDayInMonthIdx = 4,
+  checkInDate = '06/11/1973',
+  checkOutDate = '14/11/1973',
 ) => {
   if (firstDayInMonthIdx > daysInWeek) {
     throw new Error('Wrong first day index!');
   }
 
   const weeks = Math.round(daysInMonth / daysInWeek) + 1;
-  const calendar = Array(weeks)
-    .fill()
-    .map(() => Array(daysInWeek).fill(0));
+  const calendar = [];
 
-  calendar.forEach((week, weekIdx) => {
-    week.forEach((day, dayIdx) => {
-      if (weekIdx > 0) {
-        week[dayIdx] =
-          (calendar[weekIdx - 1][dayIdx] + daysInWeek) % daysInMonth ||
-          daysInMonth;
+  for (let w = 0; w < weeks; w++) {
+    const week = [];
+
+    for (let d = 0; d < daysInWeek; d++) {
+      let day = 0;
+      const dayObj = {
+        dayOfMonth: 0,
+        notCurrentMonth: false,
+        selectedDay: false,
+      };
+
+      if (w > 0) {
+        day = calendar[w - 1][d].dayOfMonth + daysInWeek;
       } else {
-        week[dayIdx] =
-          (daysInMonth - firstDayInMonthIdx + dayIdx + 1) % daysInMonth ||
-          daysInMonth;
+        day = daysInMonth - firstDayInMonthIdx + d + 1;
       }
-    });
-  });
+
+      if (day > daysInMonth) {
+        day = day % daysInMonth || daysInMonth;
+      }
+
+      if (day > daysInWeek * (w + 1) || day < w * d) {
+        dayObj.notCurrentMonth = true;
+      }
+
+      dayObj.dayOfMonth = day;
+
+      if (
+        day === Number(checkInDate.split('/')[0]) ||
+        day === Number(checkOutDate.split('/')[0])
+      ) {
+        dayObj.selectedDay = true;
+      }
+
+      week.push(dayObj);
+    }
+    calendar.push(week);
+  }
 
   return calendar;
 };
 
-export { isPalindrome, findDataByQuery, countryCity, getCalendarMonth };
+export { getCalendarMonth, deepEqual };
