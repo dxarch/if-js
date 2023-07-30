@@ -1,42 +1,45 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
-    font-style: normal;
-    font-size: unset;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  font-style: normal;
+  font-size: unset;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 input {
-    all: unset;
-    border: none;
-    cursor: pointer;
+  all: unset;
+  border: none;
+  cursor: pointer;
 }
 
 input[disabled] {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 button {
-    all: unset;
-    outline: revert;
-    cursor: pointer;
-    text-align: center;
+  all: unset;
+  outline: revert;
+  cursor: pointer;
+  text-align: center;
 }
 
 a:link,
 a:hover,
 a:active,
 a:visited {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
-
-

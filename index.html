@@ -5,484 +5,683 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>TripHouse</title>
     <link rel="stylesheet" href="src/css/styles.css" />
-    <link rel="stylesheet" href="src/css/fonts.css">
-    <link rel="stylesheet" href="src/css/reset.css">
-    <link rel="icon" href="src/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="src/css/fonts.css" />
+    <link rel="stylesheet" href="src/css/reset.css" />
+    <link rel="icon" href="src/images/favicon.svg" type="image/x-icon" />
   </head>
   <body>
-  <svg class="icon__google-play--top" xmlns="http://www.w3.org/2000/svg">
-    <symbol id="google-play" viewBox="0 0 135 40" fill="none">
-      <path d="M130 40H5c-2.75 0-5-2.25-5-5V5c0-2.75 2.25-5 5-5h125c2.75 0 5 2.25 5 5v30c0 2.75-2.25 5-5 5Z" fill="#000"/>
-      <path d="M130 .8a4.2 4.2 0 0 1 4.2 4.2v30a4.2 4.2 0 0 1-4.2 4.2H5A4.2 4.2 0 0 1 .8 35V5A4.2 4.2 0 0 1 5 .8h125Zm0-.8H5C2.25 0 0 2.25 0 5v30c0 2.75 2.25 5 5 5h125c2.75 0 5-2.25 5-5V5c0-2.75-2.25-5-5-5Z" fill="#A6A6A6"/>
-      <path d="M47.42 10.24c0 .84-.25 1.51-.75 2-.56.59-1.3.89-2.2.89-.87 0-1.6-.3-2.21-.9-.61-.6-.91-1.35-.91-2.23 0-.89.3-1.63.91-2.23.61-.6 1.34-.9 2.21-.9.43 0 .84.08 1.23.25.39.17.7.39.94.67l-.53.53c-.4-.47-.94-.71-1.64-.71-.63 0-1.18.22-1.64.67-.46.44-.69 1.02-.69 1.73s.23 1.29.69 1.73c.46.44 1.01.67 1.64.67.67 0 1.23-.22 1.68-.67.29-.29.46-.7.5-1.22h-2.18V9.8h2.91c.02.15.04.3.04.44ZM52.03 7.74H49.3v1.9h2.46v.72H49.3v1.9h2.73V13h-3.5V7h3.5v.74ZM55.28 13h-.77V7.74h-1.68V7h4.12v.74h-1.68V13h.01ZM59.94 13V7h.77v6h-.77ZM64.13 13h-.77V7.74h-1.68V7h4.12v.74h-1.68V13h.01ZM73.61 12.22c-.59.61-1.32.91-2.2.91-.88 0-1.61-.3-2.2-.91-.59-.61-.88-1.35-.88-2.22 0-.87.29-1.62.88-2.22.59-.61 1.32-.91 2.2-.91.87 0 1.6.3 2.2.91.59.61.89 1.35.89 2.22-.01.88-.3 1.62-.89 2.22Zm-3.83-.5c.44.45.99.67 1.63.67.64 0 1.19-.22 1.63-.67.44-.45.67-1.02.67-1.72s-.22-1.27-.67-1.72c-.44-.45-.99-.67-1.63-.67-.64 0-1.19.22-1.63.67-.44.45-.67 1.02-.67 1.72s.23 1.27.67 1.72ZM75.58 13V7h.94l2.92 4.67h.03l-.03-1.16V7h.77v6h-.8l-3.05-4.89h-.03l.03 1.16V13h-.78Z" fill="#fff" stroke="#fff" stroke-width=".2" stroke-miterlimit="10"/>
-      <path d="M68.14 21.75c-2.35 0-4.27 1.79-4.27 4.25 0 2.45 1.92 4.25 4.27 4.25 2.35 0 4.27-1.8 4.27-4.25 0-2.46-1.92-4.25-4.27-4.25Zm0 6.83c-1.29 0-2.4-1.06-2.4-2.58 0-1.53 1.11-2.58 2.4-2.58 1.29 0 2.4 1.05 2.4 2.58 0 1.52-1.12 2.58-2.4 2.58Zm-9.32-6.83c-2.35 0-4.27 1.79-4.27 4.25 0 2.45 1.92 4.25 4.27 4.25 2.35 0 4.27-1.8 4.27-4.25 0-2.46-1.92-4.25-4.27-4.25Zm0 6.83c-1.29 0-2.4-1.06-2.4-2.58 0-1.53 1.11-2.58 2.4-2.58 1.29 0 2.4 1.05 2.4 2.58 0 1.52-1.11 2.58-2.4 2.58Zm-11.08-5.52v1.8h4.32c-.13 1.01-.47 1.76-.98 2.27-.63.63-1.61 1.32-3.33 1.32-2.66 0-4.74-2.14-4.74-4.8 0-2.66 2.08-4.8 4.74-4.8 1.43 0 2.48.56 3.25 1.29l1.27-1.27c-1.08-1.03-2.51-1.82-4.53-1.82-3.64 0-6.7 2.96-6.7 6.61 0 3.64 3.06 6.61 6.7 6.61 1.97 0 3.45-.64 4.61-1.85 1.19-1.19 1.56-2.87 1.56-4.22 0-.42-.03-.81-.1-1.13h-6.07v-.01Zm45.31 1.4c-.35-.95-1.43-2.71-3.64-2.71-2.19 0-4.01 1.72-4.01 4.25 0 2.38 1.8 4.25 4.22 4.25 1.95 0 3.08-1.19 3.54-1.88l-1.45-.97c-.48.71-1.14 1.18-2.09 1.18s-1.63-.44-2.06-1.29l5.69-2.35-.2-.48Zm-5.8 1.42c-.05-1.64 1.27-2.48 2.22-2.48.74 0 1.37.37 1.58.9l-3.8 1.58ZM82.63 30h1.87V17.5h-1.87V30Zm-3.06-7.3h-.07c-.42-.5-1.22-.95-2.24-.95-2.13 0-4.08 1.87-4.08 4.27 0 2.38 1.95 4.24 4.08 4.24 1.01 0 1.82-.45 2.24-.97h.06v.61c0 1.63-.87 2.5-2.27 2.5-1.14 0-1.85-.82-2.14-1.51l-1.63.68c.47 1.13 1.71 2.51 3.77 2.51 2.19 0 4.04-1.29 4.04-4.43v-7.64h-1.77v.69h.01Zm-2.15 5.88c-1.29 0-2.37-1.08-2.37-2.56 0-1.5 1.08-2.59 2.37-2.59 1.27 0 2.27 1.1 2.27 2.59.01 1.48-.99 2.56-2.27 2.56Zm24.39-11.08h-4.47V30h1.87v-4.74h2.61c2.07 0 4.1-1.5 4.1-3.88s-2.05-3.88-4.11-3.88Zm.04 6.02H99.2v-4.29h2.65c1.4 0 2.19 1.16 2.19 2.14 0 .98-.79 2.15-2.19 2.15Zm11.54-1.79c-1.35 0-2.75.6-3.33 1.91l1.66.69c.35-.69 1.01-.92 1.7-.92.96 0 1.95.58 1.96 1.61v.13c-.34-.19-1.06-.48-1.95-.48-1.79 0-3.6.98-3.6 2.81 0 1.67 1.46 2.75 3.1 2.75 1.25 0 1.95-.56 2.38-1.22h.06v.97h1.8v-4.79c.01-2.22-1.65-3.46-3.78-3.46Zm-.23 6.85c-.61 0-1.46-.31-1.46-1.06 0-.96 1.06-1.33 1.98-1.33.82 0 1.21.18 1.7.42a2.257 2.257 0 0 1-2.22 1.97ZM123.74 22l-2.14 5.42h-.06L119.32 22h-2.01l3.33 7.58-1.9 4.21h1.95L125.82 22h-2.08Zm-16.8 8h1.87V17.5h-1.87V30Z" fill="#fff"/>
-      <path d="M10.44 7.54c-.29.31-.46.79-.46 1.4v22.12c0 .62.17 1.1.46 1.4l.07.07L22.9 20.15v-.3L10.51 7.47l-.07.07Z" fill="url(#a)"/>
-      <path d="m27.03 24.28-4.13-4.13v-.3l4.13-4.13.09.05 4.89 2.78c1.4.79 1.4 2.09 0 2.89l-4.89 2.78-.09.06Z" fill="url(#b)"/>
-      <path d="M27.12 24.22 22.9 20 10.44 32.46c.46.49 1.22.55 2.08.06l14.6-8.3Z" fill="url(#c)"/>
-      <path d="m27.12 15.78-14.61-8.3c-.86-.49-1.62-.43-2.08.06L22.9 20l4.22-4.22Z" fill="url(#d)"/>
-      <path opacity=".2" d="m27.03 24.13-14.52 8.25c-.81.46-1.54.43-2 .01l-.07.07.07.07c.47.42 1.19.45 2-.01l14.61-8.3-.09-.09Z" fill="#000"/>
-      <path opacity=".12" d="M10.44 32.32c-.29-.31-.46-.79-.46-1.4v.15c0 .62.17 1.1.46 1.4l.07-.07-.07-.08ZM32.01 21.3l-4.99 2.83.09.09L32 21.44c.7-.4 1.05-.92 1.05-1.44-.05.47-.4.94-1.04 1.3Z" fill="#000"/>
-      <path opacity=".25" d="m12.51 7.62 19.5 11.08c.63.36.99.82 1.05 1.3 0-.52-.35-1.05-1.05-1.44L12.51 7.48c-1.4-.79-2.54-.13-2.54 1.47v.15c0-1.61 1.15-2.27 2.54-1.48Z" fill="#fff"/>
-      <defs>
-        <linearGradient id="a" x1="21.8" y1="8.71" x2="5.017" y2="25.492" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#00A0FF"/>
-          <stop offset=".007" stop-color="#00A1FF"/>
-          <stop offset=".26" stop-color="#00BEFF"/>
-          <stop offset=".512" stop-color="#00D2FF"/>
-          <stop offset=".76" stop-color="#00DFFF"/>
-          <stop offset="1" stop-color="#00E3FF"/>
-        </linearGradient>
-        <linearGradient id="b" x1="33.834" y1="20.001" x2="9.638" y2="20.001" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#FFE000"/>
-          <stop offset=".409" stop-color="#FFBD00"/>
-          <stop offset=".775" stop-color="orange"/>
-          <stop offset="1" stop-color="#FF9C00"/>
-        </linearGradient>
-        <linearGradient id="c" x1="24.827" y1="22.296" x2="2.069" y2="45.054" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#FF3A44"/>
-          <stop offset="1" stop-color="#C31162"/>
-        </linearGradient>
-        <linearGradient id="d" x1="7.297" y1=".176" x2="17.46" y2="10.339" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#32A071"/>
-          <stop offset=".069" stop-color="#2DA771"/>
-          <stop offset=".476" stop-color="#15CF74"/>
-          <stop offset=".801" stop-color="#06E775"/>
-          <stop offset="1" stop-color="#00F076"/>
-        </linearGradient>
-      </defs>
-    </symbol>
-  </svg>
-  <header class="top">
-    <div class="wrapper wrapper--top">
-      <nav class="flex nav col-lg-12">
-        <svg class="icon icon__logo icon__logo--blue">
-          <use href="src/images/sprites/icons.svg#logo"></use>
-        </svg>
-        <div class="flex nav__menu">
-          <ul class="flex nav__links">
-            <li><a href="#" class="nav__link">Stays</a></li>
-            <li><a href="#" class="nav__link">Attractions</a></li>
-          </ul>
-          <ul class="flex nav__links nav__links--icons">
-            <li>
-              <button>
-                <svg class="nav__icon nav__icon--night">
-                  <use href="src/images/sprites/icons.svg#night"></use>
-                </svg>
-              </button>
-            </li>
-            <li>
-              <button>
-                <svg class="nav__icon nav__icon--account">
-                  <use href="src/images/sprites/icons.svg#account"></use>
-                </svg>
-              </button>
-            </li>
-            <li>
-              <button>
-                <svg class="nav__icon nav__icon--burger --hidden">
-                  <use href="src/images/sprites/icons.svg#burger"></use>
-                </svg>
-              </button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="booking col-lg-12">
-        <div class="booking__header booking__header--mb">
-          <h2 class="booking__title">Discover stays</h2>
-          <h2 class="booking__title">to live, work or just relax</h2>
-        </div>
-        <div class="booking__block">
-          <div class="booking__labels">
-            <label for="city" class="booking__hint">Your destination or hotel name</label>
-            <label for="check-in" class="booking__hint">Check-in — Check-out</label>
-          </div>
-          <form action="/" class="booking__form">
-            <div class="booking__item booking__wrap booking__city col-lg-4 col-md-4">
-              <svg class="icon icon__search --hidden">
-                <use href="src/images/sprites/icons.svg#search"></use>
-              </svg>
-              <input type="text" class="booking__input booking__input--city" name="city" id="city" value="New York">
-            </div>
-            <div class="booking__wrap booking__dates col-lg-3 col-md-3">
-              <div class="booking__item booking__item--date label__wrap--two-level">
-                <label for="check-in" class="label__booking label__booking--padding label__booking--date --hidden">Check-in</label>
-                <input class="booking__input booking__input--check-in" id="check-in" value="Tue 15 Sept">
-              </div>
-              <span class="dash">—</span>
-              <div class="booking__item booking__item--date label__wrap--two-level">
-                <label for="check-out" class="label__booking label__booking--padding label__booking--date --hidden">Check-out</label>
-                <input class="booking__input booking__input--check-out" id="check-out" value="Sat 19 Sept">
-              </div>
-            </div>
-            <div class="booking__guests booking__wrap col-lg-3 col-md-3">
-              <div class="booking__item booking__item--people label__wrap--two-level label__wrap--vertical-line">
-                <label for="adults" class="label__booking">Adults</label>
-                <input id="adults" class="booking__input booking__input--people" value="2">
-              </div>
-              <span class="dash">—</span>
-              <div class="booking__item booking__item booking__item--people label__wrap--two-level label__wrap--vertical-line">
-                <label for="children" class="label__booking">Children</label>
-                <input id="children" class="booking__input booking__input--people" value="0">
-              </div>
-              <span class="dash">—</span>
-              <div class="booking__item booking__item--people label__wrap--two-level">
-                <label for="rooms" class="label__booking">Rooms</label>
-                <input id="rooms" class="booking__input booking__input--people" value="1">
-              </div>
-            </div>
-            <button class="booking__button col-lg-2 col-md-2">Search</button>
-          </form>
-        </div>
-        <div class="download">
-          <a href="#" class="download__link" target="_blank">
-            <svg class="icon icon__google-play">
-              <use href="#google-play"></use>
-            </svg>
-          </a>
-          <a href="#" class="download__link" target="_blank">
-            <svg class="icon icon__app-store">
-              <use href="src/images/sprites/icons.svg#app-store"></use>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-  <main class="flex flex__col">
-    <section class="offer">
-      <div class="offer__wrapper wrapper">
-        <h2 class="heading heading--offer">What do we offer</h2>
-        <div class="offer__block flex justify-center">
-          <div class="offer__item flex flex__col flex__center col-lg-3 col-sm-4">
-            <svg class="offer__icon offer__icon--support">
-              <use href="src/images/sprites/icons.svg#support"></use>
-            </svg>
-            <p class="offer__desc">Support 24/7</p>
-          </div>
-          <div class="offer__item flex flex__col flex__center col-lg-3 col-sm-4">
-            <svg class="offer__icon offer__icon--communicate">
-              <use href="src/images/sprites/icons.svg#communicate"></use>
-            </svg>
-            <p class="offer__desc">Communicate directly</p>
-          </div>
-          <div class="offer__item flex flex__col flex__center col-lg-3 col-sm-4">
-            <svg class="offer__icon offer__icon--book">
-              <use href="src/images/sprites/icons.svg#book-online"></use>
-            </svg>
-            <p class="offer__desc">Book online</p>
-          </div>
-          <div class="offer__item flex flex__col flex__center col-lg-3 col-sm-4">
-            <svg class="offer__icon offer__icon--reviews">
-              <use href="src/images/sprites/icons.svg#reviews"></use>
-            </svg>
-            <p class="offer__desc">Real guest reviews</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="homes">
-      <div class="wrapper wrapper--homes">
-        <h2 class="heading heading--homes">Homes guests love</h2>
-        <div class="relative col-lg-12">
-          <div class="slides homes__slides">
-            <figure class="flex flex__col slides__item col-lg-3 col-sm-3">
-              <img src="src/images/homes/hotel_leopold.png" alt="Hotel Leopold" class="slides__image">
-              <figcaption class="slides__caption slides__caption--primary">Hotel Leopold</figcaption>
-              <p class="slides__caption slides__caption--secondary">Saint Petersburg, Russia</p>
-            </figure>
-            <figure class="flex flex__col slides__item col-lg-3 col-sm-3">
-              <img src="src/images/homes/apartment_sunshine.png" alt="Apartment Sunshine" class="slides__image">
-              <figcaption class="slides__caption slides__caption--primary">Apartment Sunshine</figcaption>
-              <p class="slides__caption slides__caption--secondary">Santa  Cruz de Tenerife, Spain</p>
-            </figure>
-            <figure class="flex flex__col slides__item col-lg-3 col-sm-3">
-              <img src="src/images/homes/villa_kunerad.png" alt="Villa Kunerad" class="slides__image">
-              <figcaption class="slides__caption slides__caption--primary">Villa Kunerad</figcaption>
-              <p class="slides__caption slides__caption--secondary">Vysokie Tatry, Slowakia</p>
-            </figure>
-            <figure class="flex flex__col slides__item col-lg-3 col-sm-3">
-              <img src="src/images/homes/hotel_friendship.png" alt="Hostel Friendship" class="slides__image">
-              <figcaption class="slides__caption slides__caption--primary">Hostel Friendship</figcaption>
-              <p class="slides__caption slides__caption--secondary">Berlin, Germany</p>
-            </figure>
-          </div>
-          <div class="slides__carousel slides__carousel--homes">
-            <button class="slides__arrow slides__arrow--left">
-              <svg class="arrow__icon">
-                <use href="src/images/sprites/icons.svg#arrow-right"></use>
-              </svg>
-            </button>
-            <button class="slides__arrow slides__arrow--right">
-              <svg class="arrow__icon">
-                <use href="src/images/sprites/icons.svg#arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="destinations">
-      <div class="wrapper wrapper--destinations">
-        <h2 class="heading">The best destinations</h2>
-        <div class="destinations__tabs col-lg-6 col-md-6 col-sm-6">
-          <button class="destinations__tab destinations__tab--selected flex flex__center">
-            Regions
-          </button>
-          <button class="destinations__tab">
-            Cities
-          </button>
-          <button class="destinations__tab">
-            Places
-          </button>
-        </div>
-        <div class="relative col-lg-12">
-          <div class="slides destinations__slides">
-            <figure class="slides__item destinations__item col-lg-3 col-sm-3">
-              <div class="destinations__image slides__image">
-                <img src="src/images/destinations/maldives.png" alt="Maldives" class="slides__image">
-                <button class="destinations__btn">Book now</button>
-              </div>
-              <figcaption class="slides__caption slides__caption--primary">Maldives</figcaption>
-            </figure>
-            <figure class="slides__item destinations__item col-lg-3 col-sm-3">
-              <div class="destinations__image slides__image">
-                <img src="src/images/destinations/spain.png" alt="Spain" class="slides__image">
-                <button class="destinations__btn">Book now</button>
-              </div>
-              <figcaption class="slides__caption slides__caption--primary">Spain</figcaption>
-            </figure>
-            <figure class="slides__item destinations__item col-lg-3 col-sm-3">
-              <div class="destinations__image slides__image">
-                <img src="src/images/destinations/norway.png" alt="Norway" class="slides__image">
-                <button class="destinations__btn">Book now</button>
-              </div>
-              <figcaption class="slides__caption slides__caption--primary">Norway</figcaption>
-            </figure>
-            <figure class="slides__item destinations__item col-lg-3 col-sm-3">
-              <div class="destinations__image slides__image">
-                <img src="src/images/destinations/iceland.png" alt="Iceland" class="slides__image">
-                <button class="destinations__btn">Book now</button>
-              </div>
-              <figcaption class="slides__caption slides__caption--primary">Iceland</figcaption>
-            </figure>
-          </div>
-          <div class="slides__carousel slides__carousel--destinations">
-            <button class="slides__arrow slides__arrow--left">
-              <svg class="arrow__icon">
-                <use href="src/images/sprites/icons.svg#arrow-right"></use>
-              </svg>
-            </button>
-            <button class="slides__arrow slides__arrow--right">
-              <svg class="arrow__icon">
-                <use href="src/images/sprites/icons.svg#arrow-right"></use>
-              </svg>
-            </button>
-          </div>
-          <button class="slides__arrow destinations__arrow">
-            <svg class="arrow__icon slides__arrow--down">
-              <use href="src/images/sprites/icons.svg#arrow-right"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-    <div class="wrapper wrapper--sign-up">
-      <section class="sign-up col-lg-12 col-sm-6">
-      <div class="sign-up__user flex flex__center">
-          <svg class="sign-up__icon">
-            <use href="src/images/sprites/icons.svg#user"></use>
+    <svg class="icon__google-play--top" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="google-play" viewBox="0 0 135 40" fill="none">
+        <path
+          d="M130 40H5c-2.75 0-5-2.25-5-5V5c0-2.75 2.25-5 5-5h125c2.75 0 5 2.25 5 5v30c0 2.75-2.25 5-5 5Z"
+          fill="#000"
+        />
+        <path
+          d="M130 .8a4.2 4.2 0 0 1 4.2 4.2v30a4.2 4.2 0 0 1-4.2 4.2H5A4.2 4.2 0 0 1 .8 35V5A4.2 4.2 0 0 1 5 .8h125Zm0-.8H5C2.25 0 0 2.25 0 5v30c0 2.75 2.25 5 5 5h125c2.75 0 5-2.25 5-5V5c0-2.75-2.25-5-5-5Z"
+          fill="#A6A6A6"
+        />
+        <path
+          d="M47.42 10.24c0 .84-.25 1.51-.75 2-.56.59-1.3.89-2.2.89-.87 0-1.6-.3-2.21-.9-.61-.6-.91-1.35-.91-2.23 0-.89.3-1.63.91-2.23.61-.6 1.34-.9 2.21-.9.43 0 .84.08 1.23.25.39.17.7.39.94.67l-.53.53c-.4-.47-.94-.71-1.64-.71-.63 0-1.18.22-1.64.67-.46.44-.69 1.02-.69 1.73s.23 1.29.69 1.73c.46.44 1.01.67 1.64.67.67 0 1.23-.22 1.68-.67.29-.29.46-.7.5-1.22h-2.18V9.8h2.91c.02.15.04.3.04.44ZM52.03 7.74H49.3v1.9h2.46v.72H49.3v1.9h2.73V13h-3.5V7h3.5v.74ZM55.28 13h-.77V7.74h-1.68V7h4.12v.74h-1.68V13h.01ZM59.94 13V7h.77v6h-.77ZM64.13 13h-.77V7.74h-1.68V7h4.12v.74h-1.68V13h.01ZM73.61 12.22c-.59.61-1.32.91-2.2.91-.88 0-1.61-.3-2.2-.91-.59-.61-.88-1.35-.88-2.22 0-.87.29-1.62.88-2.22.59-.61 1.32-.91 2.2-.91.87 0 1.6.3 2.2.91.59.61.89 1.35.89 2.22-.01.88-.3 1.62-.89 2.22Zm-3.83-.5c.44.45.99.67 1.63.67.64 0 1.19-.22 1.63-.67.44-.45.67-1.02.67-1.72s-.22-1.27-.67-1.72c-.44-.45-.99-.67-1.63-.67-.64 0-1.19.22-1.63.67-.44.45-.67 1.02-.67 1.72s.23 1.27.67 1.72ZM75.58 13V7h.94l2.92 4.67h.03l-.03-1.16V7h.77v6h-.8l-3.05-4.89h-.03l.03 1.16V13h-.78Z"
+          fill="#fff"
+          stroke="#fff"
+          stroke-width=".2"
+          stroke-miterlimit="10"
+        />
+        <path
+          d="M68.14 21.75c-2.35 0-4.27 1.79-4.27 4.25 0 2.45 1.92 4.25 4.27 4.25 2.35 0 4.27-1.8 4.27-4.25 0-2.46-1.92-4.25-4.27-4.25Zm0 6.83c-1.29 0-2.4-1.06-2.4-2.58 0-1.53 1.11-2.58 2.4-2.58 1.29 0 2.4 1.05 2.4 2.58 0 1.52-1.12 2.58-2.4 2.58Zm-9.32-6.83c-2.35 0-4.27 1.79-4.27 4.25 0 2.45 1.92 4.25 4.27 4.25 2.35 0 4.27-1.8 4.27-4.25 0-2.46-1.92-4.25-4.27-4.25Zm0 6.83c-1.29 0-2.4-1.06-2.4-2.58 0-1.53 1.11-2.58 2.4-2.58 1.29 0 2.4 1.05 2.4 2.58 0 1.52-1.11 2.58-2.4 2.58Zm-11.08-5.52v1.8h4.32c-.13 1.01-.47 1.76-.98 2.27-.63.63-1.61 1.32-3.33 1.32-2.66 0-4.74-2.14-4.74-4.8 0-2.66 2.08-4.8 4.74-4.8 1.43 0 2.48.56 3.25 1.29l1.27-1.27c-1.08-1.03-2.51-1.82-4.53-1.82-3.64 0-6.7 2.96-6.7 6.61 0 3.64 3.06 6.61 6.7 6.61 1.97 0 3.45-.64 4.61-1.85 1.19-1.19 1.56-2.87 1.56-4.22 0-.42-.03-.81-.1-1.13h-6.07v-.01Zm45.31 1.4c-.35-.95-1.43-2.71-3.64-2.71-2.19 0-4.01 1.72-4.01 4.25 0 2.38 1.8 4.25 4.22 4.25 1.95 0 3.08-1.19 3.54-1.88l-1.45-.97c-.48.71-1.14 1.18-2.09 1.18s-1.63-.44-2.06-1.29l5.69-2.35-.2-.48Zm-5.8 1.42c-.05-1.64 1.27-2.48 2.22-2.48.74 0 1.37.37 1.58.9l-3.8 1.58ZM82.63 30h1.87V17.5h-1.87V30Zm-3.06-7.3h-.07c-.42-.5-1.22-.95-2.24-.95-2.13 0-4.08 1.87-4.08 4.27 0 2.38 1.95 4.24 4.08 4.24 1.01 0 1.82-.45 2.24-.97h.06v.61c0 1.63-.87 2.5-2.27 2.5-1.14 0-1.85-.82-2.14-1.51l-1.63.68c.47 1.13 1.71 2.51 3.77 2.51 2.19 0 4.04-1.29 4.04-4.43v-7.64h-1.77v.69h.01Zm-2.15 5.88c-1.29 0-2.37-1.08-2.37-2.56 0-1.5 1.08-2.59 2.37-2.59 1.27 0 2.27 1.1 2.27 2.59.01 1.48-.99 2.56-2.27 2.56Zm24.39-11.08h-4.47V30h1.87v-4.74h2.61c2.07 0 4.1-1.5 4.1-3.88s-2.05-3.88-4.11-3.88Zm.04 6.02H99.2v-4.29h2.65c1.4 0 2.19 1.16 2.19 2.14 0 .98-.79 2.15-2.19 2.15Zm11.54-1.79c-1.35 0-2.75.6-3.33 1.91l1.66.69c.35-.69 1.01-.92 1.7-.92.96 0 1.95.58 1.96 1.61v.13c-.34-.19-1.06-.48-1.95-.48-1.79 0-3.6.98-3.6 2.81 0 1.67 1.46 2.75 3.1 2.75 1.25 0 1.95-.56 2.38-1.22h.06v.97h1.8v-4.79c.01-2.22-1.65-3.46-3.78-3.46Zm-.23 6.85c-.61 0-1.46-.31-1.46-1.06 0-.96 1.06-1.33 1.98-1.33.82 0 1.21.18 1.7.42a2.257 2.257 0 0 1-2.22 1.97ZM123.74 22l-2.14 5.42h-.06L119.32 22h-2.01l3.33 7.58-1.9 4.21h1.95L125.82 22h-2.08Zm-16.8 8h1.87V17.5h-1.87V30Z"
+          fill="#fff"
+        />
+        <path
+          d="M10.44 7.54c-.29.31-.46.79-.46 1.4v22.12c0 .62.17 1.1.46 1.4l.07.07L22.9 20.15v-.3L10.51 7.47l-.07.07Z"
+          fill="url(#a)"
+        />
+        <path
+          d="m27.03 24.28-4.13-4.13v-.3l4.13-4.13.09.05 4.89 2.78c1.4.79 1.4 2.09 0 2.89l-4.89 2.78-.09.06Z"
+          fill="url(#b)"
+        />
+        <path
+          d="M27.12 24.22 22.9 20 10.44 32.46c.46.49 1.22.55 2.08.06l14.6-8.3Z"
+          fill="url(#c)"
+        />
+        <path
+          d="m27.12 15.78-14.61-8.3c-.86-.49-1.62-.43-2.08.06L22.9 20l4.22-4.22Z"
+          fill="url(#d)"
+        />
+        <path
+          opacity=".2"
+          d="m27.03 24.13-14.52 8.25c-.81.46-1.54.43-2 .01l-.07.07.07.07c.47.42 1.19.45 2-.01l14.61-8.3-.09-.09Z"
+          fill="#000"
+        />
+        <path
+          opacity=".12"
+          d="M10.44 32.32c-.29-.31-.46-.79-.46-1.4v.15c0 .62.17 1.1.46 1.4l.07-.07-.07-.08ZM32.01 21.3l-4.99 2.83.09.09L32 21.44c.7-.4 1.05-.92 1.05-1.44-.05.47-.4.94-1.04 1.3Z"
+          fill="#000"
+        />
+        <path
+          opacity=".25"
+          d="m12.51 7.62 19.5 11.08c.63.36.99.82 1.05 1.3 0-.52-.35-1.05-1.05-1.44L12.51 7.48c-1.4-.79-2.54-.13-2.54 1.47v.15c0-1.61 1.15-2.27 2.54-1.48Z"
+          fill="#fff"
+        />
+        <defs>
+          <linearGradient
+            id="a"
+            x1="21.8"
+            y1="8.71"
+            x2="5.017"
+            y2="25.492"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#00A0FF" />
+            <stop offset=".007" stop-color="#00A1FF" />
+            <stop offset=".26" stop-color="#00BEFF" />
+            <stop offset=".512" stop-color="#00D2FF" />
+            <stop offset=".76" stop-color="#00DFFF" />
+            <stop offset="1" stop-color="#00E3FF" />
+          </linearGradient>
+          <linearGradient
+            id="b"
+            x1="33.834"
+            y1="20.001"
+            x2="9.638"
+            y2="20.001"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#FFE000" />
+            <stop offset=".409" stop-color="#FFBD00" />
+            <stop offset=".775" stop-color="orange" />
+            <stop offset="1" stop-color="#FF9C00" />
+          </linearGradient>
+          <linearGradient
+            id="c"
+            x1="24.827"
+            y1="22.296"
+            x2="2.069"
+            y2="45.054"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#FF3A44" />
+            <stop offset="1" stop-color="#C31162" />
+          </linearGradient>
+          <linearGradient
+            id="d"
+            x1="7.297"
+            y1=".176"
+            x2="17.46"
+            y2="10.339"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#32A071" />
+            <stop offset=".069" stop-color="#2DA771" />
+            <stop offset=".476" stop-color="#15CF74" />
+            <stop offset=".801" stop-color="#06E775" />
+            <stop offset="1" stop-color="#00F076" />
+          </linearGradient>
+        </defs>
+      </symbol>
+    </svg>
+    <header class="top">
+      <div class="wrapper wrapper--top">
+        <nav class="flex nav col-lg-12">
+          <svg class="icon icon__logo icon__logo--blue">
+            <use href="src/images/sprites/icons.svg#logo"></use>
           </svg>
-      </div>
-        <div class="sign-up__offer">
-          <button>
-            <svg class="close__icon">
-              <use href="src/images/sprites/icons.svg#close"></use>
-            </svg>
-          </button>
-          <svg class="sign-up__icon sign-up__icon--app">
-            <use href="src/images/sprites/icons.svg#triphouse-app"></use>
-          </svg>
-          <p class="sign-up__title-desktop">Sign up and get 20% off your first booking</p>
-          <p class="sign-up__title-mobile col-sm-3">Sign up in the app and get 20% off your first booking</p>
-          <button class="sign-up__button">Sign up</button>
-          <a href="#" class="sign-up__install">Install</a>
-        </div>
-      </section>
-    </div>
-    <section class="reviews">
-      <div class="wrapper wrapper--reviews">
-        <h2 class="heading">Guest reviews</h2>
-        <div class="relative col-lg-12">
-          <div class="slides reviews__slides">
-            <div class="slides__item slides__item--reviews col-lg-4 col-sm-6">
-              <div class="reviews__image-wrap">
-                <img src="src/images/reviews/bali.png" alt="Ubud Bali Resort&SPA" class="reviews__image">
-                <div class="reviews__price">
-                  <p>From 250 USD</p>
-                </div>
-              </div>
-              <div class="reviews__wrapper">
-                <div class="reviews__resort">
-                  <div class="flex flex__col reviews__resort-name">
-                    <h3 class="reviews__text--blue">Ubud Bali Resort&SPA</h3>
-                    <p class="reviews__text--blue">Bali, Indonesia</p>
-                  </div>
-                  <div class="reviews__rating flex flex__col">
-                    <div class="reviews__score">
-                      <p class="reviews__score-text">9,4</p>
-                    </div>
-                    <p class="reviews__count reviews__text--gray">1324 reviews</p>
-                  </div>
-                </div>
-                <div class="reviews__author flex">
-                  <svg class="reviews__person">
+          <div class="flex nav__menu">
+            <ul class="flex nav__links">
+              <li><a href="#" class="nav__link">Stays</a></li>
+              <li><a href="#" class="nav__link">Attractions</a></li>
+            </ul>
+            <ul class="flex nav__links nav__links--icons">
+              <li>
+                <button>
+                  <svg class="nav__icon nav__icon--night">
+                    <use href="src/images/sprites/icons.svg#night"></use>
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <svg class="nav__icon nav__icon--account">
                     <use href="src/images/sprites/icons.svg#account"></use>
                   </svg>
-                  <div class="reviews__user flex flex__col justify-center">
-                    <p class="reviews__text--black">Hanna Ivanova</p>
-                    <p class="reviews__text--gray"><svg class="reviews__flag">
-                      <use href="src/images/sprites/icons.svg#ua-flag"></use>
-                    </svg>Ukraine</p>
-                  </div>
-                </div>
-                <p class="reviews__text reviews__text--black">Great location, really pleasant and clean rooms, but the thing that makes this such a good place to stay are the staff. All of the people are incredibly helpful and generous with their time and advice. </p>
-              </div>
-            </div>
-            <div class="slides__item slides__item--reviews col-lg-4 col-sm-6">
-              <div class="reviews__image-wrap">
-                <img src="src/images/reviews/rotterdam.png" alt="King Kong Hostel" class="reviews__image">
-                <div class="reviews__price">
-                  <p>From 40 USD</p>
-                </div>
-              </div>
-              <div class="reviews__wrapper">
-                <div class="reviews__resort">
-                  <div class="flex flex__col reviews__resort-name">
-                    <h3 class="reviews__text--blue">King Kong Hostel</h3>
-                    <p class="reviews__text--blue">Rotterdam, Netherlands</p>
-                  </div>
-                  <div class="reviews__rating flex flex__col">
-                    <div class="reviews__score">
-                      <p class="reviews__score-text">8,9</p>
-                    </div>
-                    <p class="reviews__count reviews__text--gray">2016 reviews</p>
-                  </div>
-                </div>
-                <div class="reviews__author flex">
-                  <div class="reviews__icon">
-                    <svg class="reviews__person">
-                      <use href="src/images/sprites/icons.svg#account"></use>
-                    </svg>
-                  </div>
-                  <div class="reviews__user flex flex__col justify-center">
-                    <p class="reviews__text--black">Adam Smith</p>
-                    <p class="reviews__text--gray">
-                      <svg class="reviews__flag">
-                        <use href="src/images/sprites/icons.svg#usa-flag"></use>
-                      </svg>
-                      USA
-                    </p>
-                  </div>
-                </div>
-                <p class="reviews__text reviews__text--black">I've been in this hostel for a month and here is the best hostel of all
-                  Excellent management of excellent and ethical staff and bedrooms Bathrooms are always clean and excellent
-                  Most importantly, those who work here are kind and good-natured.</p>
-              </div>
-            </div>
-            <div class="slides__item slides__item--reviews col-lg-4 col-sm-6">
-              <div class="reviews__image-wrap">
-                <img src="src/images/reviews/marocco.png" alt="Rokoko Hotel" class="reviews__image">
-                <div class="reviews__price">
-                  <p>From 100 USD</p>
-                </div>
-              </div>
-              <div class="reviews__wrapper">
-                <div class="reviews__resort">
-                  <div class="reviews__resort-name flex flex__col">
-                    <h3 class="reviews__text--blue">Rokoko Hotel</h3>
-                    <p class="reviews__text--blue">Ourika, Marocco</p>
-                  </div>
-                  <div class="reviews__rating flex flex__col">
-                    <div class="reviews__score">
-                      <p class="reviews__score-text">9,1</p>
-                    </div>
-                    <p class="reviews__count reviews__text--gray">815 reviews</p>
-                  </div>
-                </div>
-                <div class="reviews__author flex">
-                  <div class="reviews__icon">
-                    <svg class="reviews__person">
-                      <use href="src/images/sprites/icons.svg#account"></use>
-                    </svg>
-                  </div>
-                  <div class="reviews__user flex flex__col justify-center">
-                    <p class="reviews__text--black">Anika Messer</p>
-                    <p class="reviews__text--gray">
-                      <svg class="reviews__flag">
-                        <use href="src/images/sprites/icons.svg#germany-flag"></use>
-                      </svg>
-                      Germany
-                    </p>
-                  </div>
-                </div>
-                <p class="reviews__text reviews__text--black">Efficient, friendly, professional, and appropriately attentive. Great hotel in a great location. Easy access to all the surrounding historical sites. Staff is fantastic. Will definitely stay at this location during my next stay in Marocco.</p>
-              </div>
-            </div>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <svg class="nav__icon nav__icon--burger --hidden">
+                    <use href="src/images/sprites/icons.svg#burger"></use>
+                  </svg>
+                </button>
+              </li>
+            </ul>
           </div>
-          <div class="slides__carousel slides__carousel--reviews">
-            <button class="slides__arrow slides__arrow--left">
-              <svg class="arrow__icon">
-                <use href="src/images/sprites/icons.svg#arrow-right"></use>
-              </svg>
-            </button>
-            <button class="slides__arrow slides__arrow--right">
-              <svg class="arrow__icon">
-                <use href="src/images/sprites/icons.svg#arrow-right"></use>
-              </svg>
-            </button>
+        </nav>
+        <div class="booking col-lg-12">
+          <div class="booking__header booking__header--mb">
+            <h2 class="booking__title">Discover stays</h2>
+            <h2 class="booking__title">to live, work or just relax</h2>
           </div>
-          <div class="swiper">
-            <div class="swiper__item swiper__item--selected"></div>
-            <div class="swiper__item"></div>
-            <div class="swiper__item"></div>
-            <div class="swiper__item"></div>
+          <div class="booking__block">
+            <div class="booking__labels">
+              <label for="city" class="booking__hint"
+                >Your destination or hotel name</label
+              >
+              <label for="check-in" class="booking__hint"
+                >Check-in — Check-out</label
+              >
+            </div>
+            <form action="/" class="booking__form">
+              <div
+                class="booking__item booking__wrap booking__city col-lg-4 col-md-4"
+              >
+                <svg class="icon icon__search --hidden">
+                  <use href="src/images/sprites/icons.svg#search"></use>
+                </svg>
+                <input
+                  type="text"
+                  class="booking__input booking__input--city"
+                  name="city"
+                  id="city"
+                  value="New York"
+                />
+              </div>
+              <div class="booking__wrap booking__dates col-lg-3 col-md-3">
+                <div
+                  class="booking__item booking__item--date label__wrap--two-level"
+                >
+                  <label
+                    for="check-in"
+                    class="label__booking label__booking--padding label__booking--date --hidden"
+                    >Check-in</label
+                  >
+                  <input
+                    class="booking__input booking__input--check-in"
+                    id="check-in"
+                    value="Tue 15 Sept"
+                  />
+                </div>
+                <span class="dash">—</span>
+                <div
+                  class="booking__item booking__item--date label__wrap--two-level"
+                >
+                  <label
+                    for="check-out"
+                    class="label__booking label__booking--padding label__booking--date --hidden"
+                    >Check-out</label
+                  >
+                  <input
+                    class="booking__input booking__input--check-out"
+                    id="check-out"
+                    value="Sat 19 Sept"
+                  />
+                </div>
+              </div>
+              <div class="booking__guests booking__wrap col-lg-3 col-md-3">
+                <div
+                  class="booking__item booking__item--people label__wrap--two-level label__wrap--vertical-line"
+                >
+                  <label for="adults" class="label__booking">Adults</label>
+                  <input
+                    id="adults"
+                    class="booking__input booking__input--people"
+                    value="2"
+                  />
+                </div>
+                <span class="dash">—</span>
+                <div
+                  class="booking__item booking__item booking__item--people label__wrap--two-level label__wrap--vertical-line"
+                >
+                  <label for="children" class="label__booking">Children</label>
+                  <input
+                    id="children"
+                    class="booking__input booking__input--people"
+                    value="0"
+                  />
+                </div>
+                <span class="dash">—</span>
+                <div
+                  class="booking__item booking__item--people label__wrap--two-level"
+                >
+                  <label for="rooms" class="label__booking">Rooms</label>
+                  <input
+                    id="rooms"
+                    class="booking__input booking__input--people"
+                    value="1"
+                  />
+                </div>
+              </div>
+              <button class="booking__button col-lg-2 col-md-2">Search</button>
+            </form>
+          </div>
+          <div class="download">
+            <a href="#" class="download__link" target="_blank">
+              <svg class="icon icon__google-play">
+                <use href="#google-play"></use>
+              </svg>
+            </a>
+            <a href="#" class="download__link" target="_blank">
+              <svg class="icon icon__app-store">
+                <use href="src/images/sprites/icons.svg#app-store"></use>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="footer__wrapper wrapper">
-      <svg class="footer__icon footer__icon--white --hidden">
-        <use href="src/images/sprites/icons.svg#logo"></use>
-      </svg>
-      <div class="footer__block col-sm-4">
-        <ul class="footer__list --text-left col-lg-4">
-          <li class="footer__title">About</li>
-          <li class="footer__item"><a href="#" class="footer__link">How Triphouse works</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">Careers</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">Privacy</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
-        </ul>
-        <ul class="footer__list --text-left col-lg-4">
-          <li class="footer__title">Property types</li>
-          <li class="footer__item"><a href="#" class="footer__link">Guest houses</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">Hotels</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">Apartments</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">Villas</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">Holiday homes</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">Hostels</a></li>
-        </ul>
-        <ul class="footer__list --text-left col-lg-4">
-          <li class="footer__title">Support</li>
-          <li class="footer__item"><a href="#" class="footer__link">Contact Customer Service</a></li>
-          <li class="footer__item"><a href="#" class="footer__link">FAQ</a></li>
-        </ul>
+    </header>
+    <main class="flex flex__col">
+      <section class="offer">
+        <div class="offer__wrapper wrapper">
+          <h2 class="heading heading--offer">What do we offer</h2>
+          <div class="offer__block flex justify-center">
+            <div
+              class="offer__item flex flex__col flex__center col-lg-3 col-sm-4"
+            >
+              <svg class="offer__icon offer__icon--support">
+                <use href="src/images/sprites/icons.svg#support"></use>
+              </svg>
+              <p class="offer__desc">Support 24/7</p>
+            </div>
+            <div
+              class="offer__item flex flex__col flex__center col-lg-3 col-sm-4"
+            >
+              <svg class="offer__icon offer__icon--communicate">
+                <use href="src/images/sprites/icons.svg#communicate"></use>
+              </svg>
+              <p class="offer__desc">Communicate directly</p>
+            </div>
+            <div
+              class="offer__item flex flex__col flex__center col-lg-3 col-sm-4"
+            >
+              <svg class="offer__icon offer__icon--book">
+                <use href="src/images/sprites/icons.svg#book-online"></use>
+              </svg>
+              <p class="offer__desc">Book online</p>
+            </div>
+            <div
+              class="offer__item flex flex__col flex__center col-lg-3 col-sm-4"
+            >
+              <svg class="offer__icon offer__icon--reviews">
+                <use href="src/images/sprites/icons.svg#reviews"></use>
+              </svg>
+              <p class="offer__desc">Real guest reviews</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="homes">
+        <div class="wrapper wrapper--homes">
+          <h2 class="heading heading--homes">Homes guests love</h2>
+          <div class="relative col-lg-12">
+            <div class="slides homes__slides">
+            </div>
+            <div class="slides__carousel slides__carousel--homes">
+              <button class="slides__arrow slides__arrow--left">
+                <svg class="arrow__icon">
+                  <use href="src/images/sprites/icons.svg#arrow-right"></use>
+                </svg>
+              </button>
+              <button class="slides__arrow slides__arrow--right">
+                <svg class="arrow__icon">
+                  <use href="src/images/sprites/icons.svg#arrow-right"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="destinations">
+        <div class="wrapper wrapper--destinations">
+          <h2 class="heading">The best destinations</h2>
+          <div class="destinations__tabs col-lg-6 col-md-6 col-sm-6">
+            <button
+              class="destinations__tab destinations__tab--selected flex flex__center"
+            >
+              Regions
+            </button>
+            <button class="destinations__tab">Cities</button>
+            <button class="destinations__tab">Places</button>
+          </div>
+          <div class="relative col-lg-12">
+            <div class="slides destinations__slides">
+              <figure class="slides__item destinations__item col-lg-3 col-sm-3">
+                <div class="destinations__image slides__image">
+                  <img
+                    src="src/images/destinations/maldives.png"
+                    alt="Maldives"
+                    class="slides__image"
+                  />
+                  <button class="destinations__btn">Book now</button>
+                </div>
+                <figcaption class="slides__caption slides__caption--primary">
+                  Maldives
+                </figcaption>
+              </figure>
+              <figure class="slides__item destinations__item col-lg-3 col-sm-3">
+                <div class="destinations__image slides__image">
+                  <img
+                    src="src/images/destinations/spain.png"
+                    alt="Spain"
+                    class="slides__image"
+                  />
+                  <button class="destinations__btn">Book now</button>
+                </div>
+                <figcaption class="slides__caption slides__caption--primary">
+                  Spain
+                </figcaption>
+              </figure>
+              <figure class="slides__item destinations__item col-lg-3 col-sm-3">
+                <div class="destinations__image slides__image">
+                  <img
+                    src="src/images/destinations/norway.png"
+                    alt="Norway"
+                    class="slides__image"
+                  />
+                  <button class="destinations__btn">Book now</button>
+                </div>
+                <figcaption class="slides__caption slides__caption--primary">
+                  Norway
+                </figcaption>
+              </figure>
+              <figure class="slides__item destinations__item col-lg-3 col-sm-3">
+                <div class="destinations__image slides__image">
+                  <img
+                    src="src/images/destinations/iceland.png"
+                    alt="Iceland"
+                    class="slides__image"
+                  />
+                  <button class="destinations__btn">Book now</button>
+                </div>
+                <figcaption class="slides__caption slides__caption--primary">
+                  Iceland
+                </figcaption>
+              </figure>
+            </div>
+            <div class="slides__carousel slides__carousel--destinations">
+              <button class="slides__arrow slides__arrow--left">
+                <svg class="arrow__icon">
+                  <use href="src/images/sprites/icons.svg#arrow-right"></use>
+                </svg>
+              </button>
+              <button class="slides__arrow slides__arrow--right">
+                <svg class="arrow__icon">
+                  <use href="src/images/sprites/icons.svg#arrow-right"></use>
+                </svg>
+              </button>
+            </div>
+            <button class="slides__arrow destinations__arrow">
+              <svg class="arrow__icon slides__arrow--down">
+                <use href="src/images/sprites/icons.svg#arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <div class="wrapper wrapper--sign-up">
+        <section class="sign-up col-lg-12 col-sm-6">
+          <div class="sign-up__user flex flex__center">
+            <svg class="sign-up__icon">
+              <use href="src/images/sprites/icons.svg#user"></use>
+            </svg>
+          </div>
+          <div class="sign-up__offer">
+            <button>
+              <svg class="close__icon">
+                <use href="src/images/sprites/icons.svg#close"></use>
+              </svg>
+            </button>
+            <svg class="sign-up__icon sign-up__icon--app">
+              <use href="src/images/sprites/icons.svg#triphouse-app"></use>
+            </svg>
+            <p class="sign-up__title-desktop">
+              Sign up and get 20% off your first booking
+            </p>
+            <p class="sign-up__title-mobile col-sm-3">
+              Sign up in the app and get 20% off your first booking
+            </p>
+            <button class="sign-up__button">Sign up</button>
+            <a href="#" class="sign-up__install">Install</a>
+          </div>
+        </section>
       </div>
-      <p class="footer__copyright col-sm-4">© 2022 Triphouse, Inc. All rights reserved</p>
-    </div>
-  </footer>
+      <section class="reviews">
+        <div class="wrapper wrapper--reviews">
+          <h2 class="heading">Guest reviews</h2>
+          <div class="relative col-lg-12">
+            <div class="slides reviews__slides">
+              <div class="slides__item slides__item--reviews col-lg-4 col-sm-6">
+                <div class="reviews__image-wrap">
+                  <img
+                    src="src/images/reviews/bali.png"
+                    alt="Ubud Bali Resort&SPA"
+                    class="reviews__image"
+                  />
+                  <div class="reviews__price">
+                    <p>From 250 USD</p>
+                  </div>
+                </div>
+                <div class="reviews__wrapper">
+                  <div class="reviews__resort">
+                    <div class="flex flex__col reviews__resort-name">
+                      <h3 class="reviews__text--blue">Ubud Bali Resort&SPA</h3>
+                      <p class="reviews__text--blue">Bali, Indonesia</p>
+                    </div>
+                    <div class="reviews__rating flex flex__col">
+                      <div class="reviews__score">
+                        <p class="reviews__score-text">9,4</p>
+                      </div>
+                      <p class="reviews__count reviews__text--gray">
+                        1324 reviews
+                      </p>
+                    </div>
+                  </div>
+                  <div class="reviews__author flex">
+                    <svg class="reviews__person">
+                      <use href="src/images/sprites/icons.svg#account"></use>
+                    </svg>
+                    <div class="reviews__user flex flex__col justify-center">
+                      <p class="reviews__text--black">Hanna Ivanova</p>
+                      <p class="reviews__text--gray">
+                        <svg class="reviews__flag">
+                          <use
+                            href="src/images/sprites/icons.svg#ua-flag"
+                          ></use></svg
+                        >Ukraine
+                      </p>
+                    </div>
+                  </div>
+                  <p class="reviews__text reviews__text--black">
+                    Great location, really pleasant and clean rooms, but the
+                    thing that makes this such a good place to stay are the
+                    staff. All of the people are incredibly helpful and generous
+                    with their time and advice.
+                  </p>
+                </div>
+              </div>
+              <div class="slides__item slides__item--reviews col-lg-4 col-sm-6">
+                <div class="reviews__image-wrap">
+                  <img
+                    src="src/images/reviews/rotterdam.png"
+                    alt="King Kong Hostel"
+                    class="reviews__image"
+                  />
+                  <div class="reviews__price">
+                    <p>From 40 USD</p>
+                  </div>
+                </div>
+                <div class="reviews__wrapper">
+                  <div class="reviews__resort">
+                    <div class="flex flex__col reviews__resort-name">
+                      <h3 class="reviews__text--blue">King Kong Hostel</h3>
+                      <p class="reviews__text--blue">Rotterdam, Netherlands</p>
+                    </div>
+                    <div class="reviews__rating flex flex__col">
+                      <div class="reviews__score">
+                        <p class="reviews__score-text">8,9</p>
+                      </div>
+                      <p class="reviews__count reviews__text--gray">
+                        2016 reviews
+                      </p>
+                    </div>
+                  </div>
+                  <div class="reviews__author flex">
+                    <div class="reviews__icon">
+                      <svg class="reviews__person">
+                        <use href="src/images/sprites/icons.svg#account"></use>
+                      </svg>
+                    </div>
+                    <div class="reviews__user flex flex__col justify-center">
+                      <p class="reviews__text--black">Adam Smith</p>
+                      <p class="reviews__text--gray">
+                        <svg class="reviews__flag">
+                          <use
+                            href="src/images/sprites/icons.svg#usa-flag"
+                          ></use>
+                        </svg>
+                        USA
+                      </p>
+                    </div>
+                  </div>
+                  <p class="reviews__text reviews__text--black">
+                    I've been in this hostel for a month and here is the best
+                    hostel of all Excellent management of excellent and ethical
+                    staff and bedrooms Bathrooms are always clean and excellent
+                    Most importantly, those who work here are kind and
+                    good-natured.
+                  </p>
+                </div>
+              </div>
+              <div class="slides__item slides__item--reviews col-lg-4 col-sm-6">
+                <div class="reviews__image-wrap">
+                  <img
+                    src="src/images/reviews/marocco.png"
+                    alt="Rokoko Hotel"
+                    class="reviews__image"
+                  />
+                  <div class="reviews__price">
+                    <p>From 100 USD</p>
+                  </div>
+                </div>
+                <div class="reviews__wrapper">
+                  <div class="reviews__resort">
+                    <div class="reviews__resort-name flex flex__col">
+                      <h3 class="reviews__text--blue">Rokoko Hotel</h3>
+                      <p class="reviews__text--blue">Ourika, Marocco</p>
+                    </div>
+                    <div class="reviews__rating flex flex__col">
+                      <div class="reviews__score">
+                        <p class="reviews__score-text">9,1</p>
+                      </div>
+                      <p class="reviews__count reviews__text--gray">
+                        815 reviews
+                      </p>
+                    </div>
+                  </div>
+                  <div class="reviews__author flex">
+                    <div class="reviews__icon">
+                      <svg class="reviews__person">
+                        <use href="src/images/sprites/icons.svg#account"></use>
+                      </svg>
+                    </div>
+                    <div class="reviews__user flex flex__col justify-center">
+                      <p class="reviews__text--black">Anika Messer</p>
+                      <p class="reviews__text--gray">
+                        <svg class="reviews__flag">
+                          <use
+                            href="src/images/sprites/icons.svg#germany-flag"
+                          ></use>
+                        </svg>
+                        Germany
+                      </p>
+                    </div>
+                  </div>
+                  <p class="reviews__text reviews__text--black">
+                    Efficient, friendly, professional, and appropriately
+                    attentive. Great hotel in a great location. Easy access to
+                    all the surrounding historical sites. Staff is fantastic.
+                    Will definitely stay at this location during my next stay in
+                    Marocco.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="slides__carousel slides__carousel--reviews">
+              <button class="slides__arrow slides__arrow--left">
+                <svg class="arrow__icon">
+                  <use href="src/images/sprites/icons.svg#arrow-right"></use>
+                </svg>
+              </button>
+              <button class="slides__arrow slides__arrow--right">
+                <svg class="arrow__icon">
+                  <use href="src/images/sprites/icons.svg#arrow-right"></use>
+                </svg>
+              </button>
+            </div>
+            <div class="swiper">
+              <div class="swiper__item swiper__item--selected"></div>
+              <div class="swiper__item"></div>
+              <div class="swiper__item"></div>
+              <div class="swiper__item"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__wrapper wrapper">
+        <svg class="footer__icon footer__icon--white --hidden">
+          <use href="src/images/sprites/icons.svg#logo"></use>
+        </svg>
+        <div class="footer__block col-sm-4">
+          <ul class="footer__list --text-left col-lg-4">
+            <li class="footer__title">About</li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">How Triphouse works</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Careers</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Privacy</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Terms</a>
+            </li>
+          </ul>
+          <ul class="footer__list --text-left col-lg-4">
+            <li class="footer__title">Property types</li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Guest houses</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Hotels</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Apartments</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Villas</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Holiday homes</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Hostels</a>
+            </li>
+          </ul>
+          <ul class="footer__list --text-left col-lg-4">
+            <li class="footer__title">Support</li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">Contact Customer Service</a>
+            </li>
+            <li class="footer__item">
+              <a href="#" class="footer__link">FAQ</a>
+            </li>
+          </ul>
+        </div>
+        <p class="footer__copyright col-sm-4">
+          © 2022 Triphouse, Inc. All rights reserved
+        </p>
+      </div>
+    </footer>
+    <script src="src/js/main.js" type="module"></script>
   </body>
 </html>
