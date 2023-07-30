@@ -22,12 +22,4 @@ console.log(
   ),
 );
 
-console.log(
-    getCalendarMonth(
-        10,
-        7,
-        4,
-        '01/07/2023',
-        '06/07/2023',
-    ),
-);
+console.log(getCalendarMonth(10, 7, 4, '01/07/2023', '06/07/2023'));
