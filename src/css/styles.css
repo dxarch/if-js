@@ -4,6 +4,7 @@
   --col-sm-width: calc(100% / 6);
 
   --gap-lg: 16px;
+  --gap-md: 12px;
   --gap-sm: 8px;
 
   --white: #ffffff;
@@ -14,6 +15,7 @@
   --accent-blue: #3077c6;
   --stroke-main: #f3f3f4;
   --bg-main: #eaf0f9;
+  --inactive: #cecece;
 }
 
 .col-lg-1 {
@@ -265,14 +267,53 @@ body {
 }
 
 .booking__dates {
-  border: 1px solid #cecece;
+  border: 1px solid var(--inactive);
 }
 
 .booking__guests {
+  position: relative;
   flex-grow: 1;
   padding-right: 30px;
   padding-left: 30px;
 }
+
+.booking__guests-filter {
+  display: none;
+  position: absolute;
+  gap: vaR(--gap-md);
+  width: 260px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: var(--gap-sm);
+  right: 12px;
+  top: calc(100% + 12px);
+}
+
+.booking__filter-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.booking__filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.booking__filter-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--inactive);
+  color: var(--inactive);
+}
+
+.booking__filter-btn--active {
+  border: 1px solid var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+
 
 .booking__input {
   width: 100%;
@@ -1290,7 +1331,7 @@ body {
   }
 
   .slides__item--reviews {
-    gap: 12px;
+    gap: var(--gap-md);
   }
 
   .slides__item--reviews:not(:first-child) {
