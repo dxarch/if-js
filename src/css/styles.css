@@ -1,0 +1,1477 @@
+:root {
+  --col-width: calc(100% / 12);
+  --col-md-width: calc(100% / 10);
+  --col-sm-width: calc(100% / 6);
+
+  --gap-lg: 16px;
+  --gap-sm: 8px;
+
+  --white: #ffffff;
+  --main-text: #383838;
+  --accent-yellow: #f5bd41;
+  --general-blue: #10367c;
+  --secondary-text: #bfbfbf;
+  --accent-blue: #3077c6;
+  --stroke-main: #f3f3f4;
+  --bg-main: #eaf0f9;
+}
+
+.col-lg-1 {
+  width: var(--col-width);
+}
+
+.col-lg-2 {
+  width: calc(var(--col-width) * 2);
+}
+
+.col-lg-3 {
+  width: calc(var(--col-width) * 3);
+}
+
+.col-lg-4 {
+  width: calc(var(--col-width) * 4);
+}
+
+.col-lg-5 {
+  width: calc(var(--col-width) * 5);
+}
+
+.col-lg-6 {
+  width: calc(var(--col-width) * 6);
+}
+
+.col-lg-7 {
+  width: calc(var(--col-width) * 7);
+}
+
+.col-lg-8 {
+  width: calc(var(--col-width) * 8);
+}
+
+.col-lg-9 {
+  width: calc(var(--col-width) * 9);
+}
+
+.col-lg-10 {
+  width: calc(var(--col-width) * 10);
+}
+
+.col-lg-11 {
+  width: calc(var(--col-width) * 11);
+}
+
+.col-lg-12 {
+  width: calc(var(--col-width) * 12);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex__col {
+  flex-direction: column;
+}
+
+.flex__center {
+  align-items: center;
+  justify-content: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.mobile {
+  display: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: var(--main-text);
+}
+
+.icon__google-play--top {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.wrapper {
+  max-width: 1232px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.--hidden {
+  display: none;
+}
+
+.--text-left {
+  text-align: left;
+}
+
+.--text-right {
+  text-align: right;
+}
+
+.--text-center {
+  text-align: center;
+}
+
+.--trailing-space:after {
+  content: '\00a0';
+}
+
+.icon__logo {
+  width: 205px;
+  height: 40px;
+}
+
+.icon__logo--blue {
+  fill: #3077c6;
+}
+
+.nav__icon:hover {
+  color: var(--accent-yellow);
+}
+
+.nav__icon--night {
+  width: 30px;
+  height: 30px;
+}
+
+.nav__icon--account {
+  width: 40px;
+  height: 40px;
+}
+
+.icon__google-play {
+  display: block;
+  width: 135px;
+  height: 40px;
+}
+
+.icon__app-store {
+  width: 120px;
+  height: 40px;
+}
+
+.top {
+  order: 1;
+  background-image: url(../images/background-castle.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+}
+
+.wrapper--top {
+  padding-top: 50px;
+}
+
+.nav {
+  min-height: 45px;
+  margin-bottom: 195px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__menu {
+  gap: 48px;
+  align-items: center;
+}
+
+.nav__links {
+  gap: 24px;
+  align-items: center;
+}
+
+.nav__link {
+  position: relative;
+}
+
+.nav__link:hover::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50px;
+  background-color: #f5bd41;
+  animation: header-hover 300ms linear;
+}
+
+@keyframes header-hover {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+
+  25% {
+    left: 10%;
+    opacity: 0.25;
+  }
+
+  50% {
+    left: 25%;
+    opacity: 0.5;
+  }
+
+  75% {
+    left: 40%;
+    opacity: 0.75;
+  }
+
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+
+.booking__form {
+  display: flex;
+  background: var(--white);
+  font-size: 18px;
+  color: var(--main-text);
+  border-radius: 8px;
+  margin-bottom: 120px;
+}
+
+.booking__item {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  gap: calc(var(--gap-sm) / 2);
+}
+
+.booking__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  border-radius: 8px;
+  gap: calc(var(--gap-sm) / 2);
+}
+
+.booking__wrap:focus-within {
+  border: 3px solid var(--accent-yellow);
+}
+
+.booking__city {
+  padding-left: 22px;
+}
+
+.booking__dates {
+  border: 1px solid #cecece;
+}
+
+.booking__guests {
+  flex-grow: 1;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.booking__input {
+  width: 100%;
+}
+
+.booking__input--check-in {
+  padding-right: 0;
+}
+
+.booking__input--check-out {
+  padding-left: 0;
+}
+
+.booking__input--people {
+  width: 1ch;
+}
+
+.booking__item--date {
+  max-width: 95px;
+}
+
+.label__booking {
+  color: var(--main-text);
+  font-size: 18px;
+  order: 2;
+}
+
+.booking__header--mb {
+  margin-bottom: 100px;
+}
+
+.booking__title {
+  font-weight: 500;
+  font-size: 50px;
+}
+
+.booking__labels {
+  width: calc(var(--col-width) * 6 - 16px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+.booking__hint {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.booking__button {
+  border-radius: 8px;
+  background-color: #3077c6;
+  color: var(--white);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  max-width: 192px;
+}
+
+.download {
+  width: 271px;
+  height: 40px;
+  display: flex;
+  gap: var(--gap-lg);
+  margin: 0 auto;
+}
+
+.offer {
+  order: 2;
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 45px;
+  word-break: break-all;
+  width: 100%;
+  margin-bottom: 105px;
+}
+
+.heading--offer {
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.heading--offer::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+  margin: 0 auto;
+  background-color: var(--accent-yellow);
+  width: 100px;
+  height: 4px;
+}
+
+.offer__block {
+  align-items: baseline;
+  gap: var(--gap-lg);
+}
+
+.offer__icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 48px;
+}
+
+.offer__desc {
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.homes {
+  order: 3;
+  background-color: var(--bg-main);
+}
+
+.relative {
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  gap: 16px;
+}
+
+.slides__item {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  min-width: 296px;
+}
+
+.slides__arrow {
+  display: flex;
+  position: absolute;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  background-color: var(--stroke-main);
+  border-radius: 50%;
+}
+
+.slides__carousel {
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+}
+
+.slides__carousel--destinations {
+  transform: translateY(-30%);
+}
+
+.slides__carousel--homes {
+  transform: translateY(-40%);
+}
+
+.slides__carousel--reviews {
+  transform: translateY(-55%);
+}
+
+.slides__arrow--left {
+  display: none;
+  position: absolute;
+  left: -16px;
+}
+
+.slides__arrow--right {
+  position: absolute;
+  right: -16px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.slides__arrow--left {
+  transform: rotate(-180deg);
+}
+
+.arrow__icon {
+  margin: auto;
+  width: 10px;
+  height: 20px;
+}
+
+.arrow__icon--down {
+  width: 20px;
+  height: 10px;
+}
+
+.slides__image {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.slides__caption {
+  line-height: 30px;
+}
+
+.slides__caption--primary {
+  color: #3077c6;
+}
+
+.slides__caption--secondary {
+  color: #bfbfbf;
+}
+
+.destinations {
+  order: 4;
+}
+
+.destinations__tabs {
+  display: flex;
+  background-color: var(--stroke-main);
+  margin-bottom: 65px;
+  border-radius: 8px;
+}
+
+.destinations__tab {
+  text-align: center;
+  flex-basis: 192px;
+  border-radius: 8px;
+  padding: 17px 0;
+}
+
+.destinations__tab--selected {
+  background-color: #3077c6;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.destinations__tab:last-child {
+  flex-grow: 1;
+}
+
+.destinations__slides {
+  padding-bottom: 48px;
+}
+
+.destinations__image {
+  position: relative;
+  max-height: 296px;
+}
+
+.destinations__image:before {
+  display: none;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #383838;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.destinations__item:hover .destinations__image:before {
+  display: block;
+  opacity: 0.4;
+  box-shadow: inset 0 4px 70px 0 rgba(56, 56, 56, 0.5);
+  animation: destinations-hover 500ms linear;
+}
+
+@keyframes destinations-hover {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.destinations__item:hover .destinations__btn {
+  opacity: 1;
+}
+
+.destinations__btn {
+  opacity: 0;
+  position: absolute;
+  width: 128px;
+  border-radius: 8px;
+  border: 1px solid var(--accent-blue);
+  color: var(--accent-blue);
+  background-color: var(--white);
+  font-size: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease;
+  padding: 13px 0;
+}
+
+.destinations__arrow {
+  position: absolute;
+  top: revert;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.slides__arrow--down {
+  transform: rotate(90deg);
+}
+
+.slides__carousel--destinations {
+  display: none;
+}
+
+.sign-up {
+  background-color: var(--bg-main);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 50px 25px;
+}
+
+.wrapper--sign-up {
+  order: 5;
+  padding: 0;
+}
+
+.sign-up__title-mobile,
+.sign-up__icon--app,
+.sign-up__install {
+  display: none;
+}
+
+.close__icon {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+}
+
+.sign-up__user {
+  height: 86px;
+  width: 86px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+.sign-up__icon {
+  width: 50px;
+  height: 45px;
+}
+
+.sign-up__title-desktop {
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 28px;
+}
+
+.sign-up__offer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sign-up__button {
+  width: 128px;
+  padding: 12px 0;
+  background-color: #ffffff;
+  color: #3077c6;
+  border-radius: 8px;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #3077c6;
+}
+
+.reviews {
+  font-size: 18px;
+  order: 6;
+}
+
+.slides__item--reviews {
+  max-width: 400px;
+  background-color: var(--bg-main);
+}
+
+.reviews__image-wrap {
+  position: relative;
+  max-height: 400px;
+}
+
+.reviews__image {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+}
+
+.reviews__price {
+  position: absolute;
+  width: 100%;
+  padding: 15px 0 15px 25px;
+  background-color: rgba(56, 56, 56, 0.7);
+  color: #ffffff;
+  font-size: 18px;
+  bottom: 0;
+}
+
+.reviews__wrapper {
+  padding: 25px;
+}
+
+.reviews__resort {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.reviews__resort-name {
+  gap: var(--gap-lg);
+}
+
+.reviews__rating {
+  align-items: flex-end;
+  gap: var(--gap-sm);
+}
+
+.reviews__text--blue {
+  color: #3077c6;
+}
+
+.reviews__text--gray {
+  color: var(--secondary-text);
+}
+
+.reviews__score {
+  width: 48px;
+  height: 32px;
+  background-color: var(--general-blue);
+  padding: 5px 0;
+  border-radius: 8px;
+}
+
+.reviews__score-text {
+  line-height: 24px;
+  text-align: center;
+  color: var(--white);
+}
+
+.reviews__count {
+  font-size: 14px;
+}
+
+.reviews__author {
+  margin-bottom: 20px;
+  gap: var(--gap-lg);
+}
+
+.reviews__person {
+  margin: 5px;
+  width: 53px;
+  height: 53px;
+  color: var(--secondary-text);
+}
+
+.reviews__user {
+  gap: var(--gap-sm);
+}
+
+.reviews__flag {
+  width: 17px;
+  height: 13px;
+  margin-right: 5px;
+}
+
+.footer {
+  order: 7;
+  background: var(--general-blue);
+  color: var(--white);
+}
+
+.wrapper--footer {
+  padding-bottom: 120px;
+  padding-top: 120px;
+}
+
+.footer__block {
+  display: flex;
+  margin-bottom: 64px;
+  gap: var(--gap-lg);
+}
+
+.footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gap-lg) * 1.5);
+  list-style-type: none;
+}
+
+.footer__title {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.footer__link {
+  text-decoration: none;
+  font-size: 20px;
+  color: var(--white);
+}
+
+.footer__copyright {
+  font-size: 14px;
+}
+
+@media (max-width: 1265px) {
+  .col-md-1 {
+    width: var(--col-md-width);
+  }
+
+  .col-md-2 {
+    width: calc(var(--col-md-width) * 2);
+  }
+
+  .col-md-3 {
+    width: calc(var(--col-md-width) * 3);
+  }
+
+  .col-md-4 {
+    width: calc(var(--col-md-width) * 4);
+  }
+
+  .col-md-5 {
+    width: calc(var(--col-md-width) * 5);
+  }
+
+  .col-md-6 {
+    width: calc(var(--col-md-width) * 6);
+  }
+
+  .col-md-7 {
+    width: calc(var(--col-md-width) * 7);
+  }
+
+  .col-md-8 {
+    width: calc(var(--col-md-width) * 8);
+  }
+
+  .col-md-9 {
+    width: calc(var(--col-md-width) * 9);
+  }
+
+  .col-md-10 {
+    width: calc(var(--col-md-width) * 10);
+  }
+
+  body {
+    font-size: 20px;
+  }
+
+  .wrapper {
+    padding: 40px 16px;
+  }
+
+  .heading {
+    margin-bottom: 80px;
+  }
+
+  .nav {
+    margin-bottom: 150px;
+  }
+
+  .booking__header--mb {
+    margin-bottom: 80px;
+  }
+
+  .booking__title {
+    font-size: 36px;
+  }
+
+  .booking__labels {
+    justify-content: space-between;
+    max-width: calc(var(--col-width) * 7 - 16px);
+  }
+
+  .booking__hint {
+    flex-shrink: 0;
+  }
+
+  .booking__input,
+  .label__booking,
+  .booking__input::placeholder,
+  .booking__hint {
+    font-size: 14px;
+  }
+
+  .booking__button,
+  .nav__link {
+    font-size: 20px;
+  }
+
+  .booking__item--date {
+    width: 75px;
+  }
+
+  .heading--homes {
+    margin-bottom: 60px;
+  }
+
+  .homes__item {
+    gap: var(--gap-lg);
+  }
+
+  .slides__caption {
+    font-size: 18px;
+    line-height: unset;
+  }
+
+  .slides__item {
+    gap: var(--gap-lg);
+  }
+
+  .slides__item--reviews {
+    gap: 0;
+  }
+
+  .slides__carousel--reviews {
+    transform: translateY(-60%);
+  }
+
+  .destinations__arrow {
+    display: none;
+  }
+
+  .slides__carousel--destinations {
+    display: revert;
+  }
+
+  .destinations__slides {
+    padding-bottom: 0;
+  }
+
+  .destinations__tab {
+    padding: 10px 0;
+  }
+
+  .destinations__arrow {
+    top: revert;
+  }
+
+  .wrapper--sign-up {
+    padding: 0 80px;
+  }
+
+  .sign-up {
+    padding: 30px 15px;
+  }
+
+  .offer__desc {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .col-sm-1 {
+    width: var(--col-sm-width);
+  }
+
+  .col-sm-2 {
+    width: calc(var(--col-sm-width) * 2);
+  }
+
+  .col-sm-3 {
+    width: calc(var(--col-sm-width) * 3);
+  }
+
+  .col-sm-4 {
+    width: calc(var(--col-sm-width) * 4);
+  }
+
+  .col-sm-5 {
+    width: calc(var(--col-sm-width) * 5);
+  }
+
+  .col-sm-6 {
+    width: calc(var(--col-sm-width) * 6);
+  }
+
+  body {
+    font-size: 12px;
+  }
+
+  .wrapper {
+    padding: 0 16px 0;
+    max-width: 688px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .wrapper--top {
+    padding-bottom: 40px;
+  }
+
+  .dash {
+    display: none;
+  }
+
+  .heading {
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 30px;
+  }
+
+  .nav {
+    margin-bottom: 40px;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .nav__links--icons {
+    display: flex;
+    gap: calc(var(--gap-sm) * 2);
+  }
+
+  .nav__btn:hover {
+    color: var(--accent-yellow);
+  }
+
+  .icon__logo {
+    width: 120px;
+    height: 24px;
+  }
+
+  .nav__icon--night {
+    width: 16px;
+    height: 16px;
+  }
+
+  .nav__icon--account {
+    width: 24px;
+    height: 24px;
+  }
+
+  .nav__icon--burger {
+    display: revert;
+    width: 24px;
+    height: 16px;
+  }
+
+  .booking__header--mb {
+    margin-bottom: 30px;
+  }
+
+  .booking__title {
+    font-size: 30px;
+  }
+
+  .booking__labels {
+    display: none;
+  }
+
+  .booking__form {
+    display: grid;
+    height: auto;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: var(--gap-sm) var(--gap-sm);
+    padding: 8px;
+    background: var(--accent-yellow);
+    border-radius: 0;
+    margin-bottom: 35px;
+  }
+
+  .booking__wrap {
+    padding: 0;
+    width: 100%;
+    background-color: var(--white);
+    border: none;
+    border-radius: 8px;
+  }
+
+  .booking__wrap:focus-within {
+    border: none;
+  }
+
+  .booking__dates {
+    width: 100%;
+    gap: var(--gap-sm);
+    background-color: unset;
+    grid-row: 2;
+    grid-column: span 6;
+  }
+
+  .booking__item {
+    width: 100%;
+  }
+
+  .booking__item--date {
+    background-color: var(--white);
+    max-width: revert;
+    width: 100%;
+  }
+
+  .booking__guests {
+    grid-row: 3;
+    grid-column: span 6;
+  }
+
+  .booking__city {
+    position: relative;
+    grid-row: 1;
+    grid-column: span 6;
+  }
+
+  .booking__input {
+    font-weight: 500;
+  }
+
+  .booking__input--city {
+    padding-left: 35px;
+  }
+
+  .label__booking {
+    display: block;
+    order: revert;
+    font-size: 12px;
+    color: var(--main-text);
+  }
+
+  .label__wrap--two-level {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(var(--gap-sm) / 2);
+    padding: 6px 0 6px 8px;
+  }
+
+  .label__wrap--vertical-line:after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 8px;
+    bottom: 8px;
+    right: 0;
+    padding: 0;
+    border-right: 1px solid var(--secondary-text);
+  }
+
+  .booking__button {
+    width: 100%;
+    max-width: revert;
+    font-size: 19px;
+    grid-column: span 6;
+    grid-row: 4;
+  }
+
+  .icon__search {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+
+  .offer {
+    order: 1;
+  }
+
+  .offer__wrapper {
+    padding: 25px 70px 40px;
+  }
+
+  .heading--offer {
+    margin-top: 0;
+  }
+
+  .heading--offer:after {
+    display: none;
+  }
+
+  .offer__block {
+    flex-direction: column;
+    align-items: center;
+    gap: calc(var(--gap-lg) * 2);
+    margin-bottom: 0;
+  }
+
+  .offer__item {
+    max-height: 105px;
+  }
+
+  .offer__icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 16px;
+  }
+
+  .offer__desc {
+    font-size: 15px;
+    word-break: revert;
+    line-height: 18px;
+    text-align: center;
+  }
+
+  .homes {
+    order: 2;
+  }
+
+  .wrapper--homes {
+    padding: 40px 16px 56px;
+  }
+
+  .slides__item {
+    gap: var(--gap-sm);
+    min-width: 156px;
+  }
+
+  .slides__item--reviews {
+    max-width: 400px;
+  }
+
+  .slides__caption {
+    font-size: 12px;
+  }
+
+  .arrow__icon {
+    width: 5px;
+    height: 15px;
+  }
+
+  .slides__arrow {
+    width: 28px;
+    height: 28px;
+    top: calc(var(--col-sm-width) * 3 - 28px);
+  }
+
+  .slides__arrow--right {
+    right: -12px;
+  }
+
+  .slides__carousel--homes {
+    transform: translateY(-68%);
+  }
+
+  .slides__carousel--destinations {
+    transform: translateY(-50%);
+  }
+
+  .slides__carousel--reviews {
+    display: none;
+  }
+
+  .destinations {
+    order: 3;
+  }
+
+  .wrapper--destinations {
+    padding: 40px 15px 40px;
+  }
+
+  .destinations__slides {
+    padding-bottom: 0;
+  }
+
+  .destinations__arrow {
+    position: absolute;
+    right: -12px;
+    top: calc(50% - 10px);
+    left: revert;
+    margin: 0;
+  }
+
+  .arrow__icon--down {
+    width: 10px;
+    height: 20px;
+    transform: rotate(-90deg);
+  }
+
+  .destinations__tabs {
+    background-color: #ffffff;
+    gap: 16px;
+    margin-bottom: 25px;
+  }
+
+  .destinations__tab {
+    border: 1px solid var(--stroke-main);
+    border-radius: 8px;
+    font-size: 19px;
+    padding: 5px 0;
+  }
+
+  .reviews {
+    order: 4;
+    font-size: 15px;
+    background-color: var(--bg-main);
+  }
+
+  .wrapper--reviews {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .slides__item--reviews {
+    gap: 12px;
+  }
+
+  .slides__item--reviews:not(:first-child) {
+    display: none;
+  }
+
+  .reviews__slides {
+    margin-bottom: 32px;
+    justify-content: center;
+  }
+
+  .reviews__score {
+    width: 39px;
+    height: 26px;
+    padding: 3px 0;
+  }
+
+  .reviews__rating {
+    gap: 5px;
+  }
+
+  .reviews__count {
+    font-size: 12px;
+  }
+
+  .reviews__score-text {
+    line-height: revert;
+  }
+
+  .reviews__price {
+    display: none;
+  }
+
+  .reviews__wrapper {
+    padding: 0;
+  }
+
+  .reviews__resort {
+    margin-bottom: 12px;
+  }
+
+  .reviews__resort-name {
+    gap: var(--gap-sm);
+  }
+
+  .reviews__person {
+    width: 43px;
+    height: 43px;
+  }
+
+  .reviews__author {
+    margin-bottom: 16px;
+    gap: var(--gap-sm);
+    align-items: center;
+  }
+
+  .reviews__user {
+    gap: calc(var(--gap-sm) / 2);
+  }
+
+  .reviews__flag {
+    width: 14px;
+    height: 14px;
+  }
+
+  .swiper {
+    display: flex;
+    gap: var(--gap-sm);
+    justify-content: center;
+  }
+
+  .swiper__item {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid #333333;
+  }
+
+  .swiper__item--selected {
+    background-color: #333333;
+  }
+
+  .sign-up {
+    background-color: #ffffff;
+    justify-content: center;
+    height: auto;
+    padding: 0;
+  }
+
+  .wrapper--sign-up {
+    padding: 0 16px;
+    order: 5;
+  }
+
+  .close__icon {
+    position: static;
+    width: 16px;
+    height: 16px;
+  }
+
+  .sign-up__offer {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 25px 0;
+  }
+
+  .sign-up__icon {
+    width: 58px;
+    height: 58px;
+  }
+
+  .sign-up__icon--app {
+    display: block;
+  }
+
+  .sign-up__title-mobile {
+    display: block;
+    min-width: 164px;
+    font-weight: 400;
+    line-height: 14px;
+  }
+
+  .sign-up__user,
+  .sign-up__button,
+  .sign-up__title-desktop {
+    display: none;
+  }
+
+  .sign-up__install {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    color: #3077c6;
+  }
+
+  .footer__wrapper {
+    padding: 40px 65px 30px;
+    margin: 0 auto;
+  }
+
+  .footer__icon {
+    display: block;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98px;
+    height: 19px;
+  }
+
+  .footer__icon--white {
+    fill: var(--white);
+  }
+
+  .footer__block {
+    width: 100%;
+    margin-bottom: 32px;
+    padding-top: 0;
+    justify-content: center;
+  }
+
+  .footer__list {
+    width: fit-content;
+    gap: var(--gap-lg);
+  }
+
+  .footer__title {
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  .footer__item {
+    display: none;
+  }
+
+  .footer__copyright {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 216px;
+    font-size: 12px;
+  }
+}
