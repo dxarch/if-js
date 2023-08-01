@@ -1,5 +1,9 @@
 import { data } from './array.js';
-import { createNewHomesItem, incrementFilterValue, decrementFilterValue } from './functions.js';
+import {
+  createNewHomesItem,
+  incrementFilterValue,
+  decrementFilterValue, addChildrenDetails, addChildAge, removeChildAge,
+} from './functions.js';
 
 const homesContainer = document.querySelector('.homes__slides');
 data.map((obj) => {
@@ -13,7 +17,10 @@ const guestsFilter = document.querySelector('.booking__guests-filter');
 const bookingWrapper = document.querySelectorAll('.booking__wrap');
 const bookingControls = document.querySelectorAll('.booking__filter-controls');
 booking.addEventListener('click', (e) => {
-  if (!e.target.classList.contains('booking__wrap') || !e.target.classList.contains('booking__input')){
+  if (
+    !e.target.classList.contains('booking__wrap') ||
+    !e.target.classList.contains('booking__input')
+  ) {
     bookingWrapper.forEach((item) => item.classList.remove('focused'));
     guestsFilter.classList.add('--hidden');
   }
@@ -30,7 +37,7 @@ bookingWrapper.forEach((wrapper) => {
       }
     });
 
-    if (e.currentTarget.classList.contains('booking__guests')){
+    if (e.currentTarget.classList.contains('booking__guests')) {
       guestsFilter.classList.remove('--hidden');
     }
     e.stopPropagation();
@@ -57,6 +64,8 @@ bookingControls.forEach((group) => {
         break;
       case 'children-value':
         value = incrementFilterValue(decrementBtn, incrementBtn, value, 0, 10);
+        value === 1 ? addChildrenDetails(guestsFilter) : value;
+        addChildAge(guestsFilter, 0, 17);
         childrenInput.value = value.toString();
         childrenInput.style.width = childrenInput.value.length + 'ch';
         break;
@@ -66,7 +75,6 @@ bookingControls.forEach((group) => {
         roomsInput.style.width = roomsInput.value.length + 'ch';
         break;
     }
-    console.log('increment value', value);
     valueEl.textContent = value.toString();
   });
 
@@ -83,6 +91,7 @@ bookingControls.forEach((group) => {
         value = decrementFilterValue(decrementBtn, incrementBtn, value, 0, 10);
         childrenInput.value = value.toString();
         childrenInput.style.width = childrenInput.value.length + 'ch';
+        removeChildAge(guestsFilter, value);
         break;
       case 'rooms-value':
         value = decrementFilterValue(decrementBtn, incrementBtn, value, 1, 30);
@@ -90,8 +99,6 @@ bookingControls.forEach((group) => {
         roomsInput.style.width = roomsInput.value.length + 'ch';
         break;
     }
-    console.log('decrement value', value);
     valueEl.textContent = value.toString();
   });
 });
-

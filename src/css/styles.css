@@ -312,6 +312,21 @@ body {
   color: var(--accent-blue);
 }
 
+.booking__filter-child-question {
+  font-size: 12px;
+  margin-top: 30px;
+  margin-bottom: 12px;
+}
+
+.booking__filter-child-ages {
+  width: 100px;
+  padding: 8px 0 8px 8px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+}
+
 .booking__input {
   width: 100%;
 }
