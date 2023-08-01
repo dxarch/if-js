@@ -197,6 +197,7 @@
                     class="booking__input booking__input--check-in"
                     id="check-in"
                     value="Tue 15 Sept"
+                    disabled
                   />
                 </div>
                 <span class="dash">—</span>
@@ -212,6 +213,7 @@
                     class="booking__input booking__input--check-out"
                     id="check-out"
                     value="Sat 19 Sept"
+                    disabled
                   />
                 </div>
               </div>
@@ -224,6 +226,7 @@
                     id="adults"
                     class="booking__input booking__input--people"
                     value="2"
+                    disabled
                   />
                 </div>
                 <span class="dash">—</span>
@@ -235,6 +238,7 @@
                     id="children"
                     class="booking__input booking__input--people"
                     value="0"
+                    disabled
                   />
                 </div>
                 <span class="dash">—</span>
@@ -246,31 +250,44 @@
                     id="rooms"
                     class="booking__input booking__input--people"
                     value="1"
+                    disabled
                   />
                 </div>
-                <div class="booking__guests-filter flex flex__col">
+                <div class="booking__guests-filter flex flex__col --hidden">
                   <div class="booking__filter-item">
                     <p>Adults</p>
                     <div class="booking__filter-controls">
-                      <button class="booking__filter-btn">–</button>
-                      <p id="booking__filter-adults">0</p>
-                      <button class="booking__filter-btn booking__filter-btn--active">+</button>
+                      <button class="booking__filter-btn booking__filter-btn--decrement booking__filter-btn--active">–</button>
+                      <p class="booking__filter-value" id="adults-value">2</p>
+                      <button
+                        class="booking__filter-btn booking__filter-btn--increment booking__filter-btn--active"
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                   <div class="booking__filter-item">
                     <p>Children</p>
                     <div class="booking__filter-controls">
-                      <button class="booking__filter-btn">–</button>
-                      <p id="booking__filter-children">0</p>
-                      <button class="booking__filter-btn booking__filter-btn--active">+</button>
+                      <button class="booking__filter-btn booking__filter-btn--decrement">–</button>
+                      <p class="booking__filter-value" id="children-value">0</p>
+                      <button
+                        class="booking__filter-btn booking__filter-btn--increment booking__filter-btn--active"
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                   <div class="booking__filter-item">
                     <p>Rooms</p>
                     <div class="booking__filter-controls">
-                      <button class="booking__filter-btn">–</button>
-                      <p id="booking__filter-rooms">0</p>
-                      <button class="booking__filter-btn booking__filter-btn--active">+</button>
+                      <button class="booking__filter-btn booking__filter-btn--decrement">–</button>
+                      <p class="booking__filter-value" id="rooms-value">1</p>
+                      <button
+                        class="booking__filter-btn booking__filter-btn--increment booking__filter-btn--active"
+                      >
+                        +
+                      </button>
                     </div>
                   </div>
                 </div>

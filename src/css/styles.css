@@ -258,9 +258,9 @@ body {
   gap: calc(var(--gap-sm) / 2);
 }
 
-.booking__wrap:focus-within {
-  border: 3px solid var(--accent-yellow);
-}
+/*.booking__wrap:focus-within {*/
+/*  border: 3px solid var(--accent-yellow);*/
+/*}*/
 
 .booking__city {
   padding-left: 22px;
@@ -273,12 +273,11 @@ body {
 .booking__guests {
   position: relative;
   flex-grow: 1;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .booking__guests-filter {
-  display: none;
   position: absolute;
   gap: vaR(--gap-md);
   width: 260px;
@@ -313,8 +312,6 @@ body {
   color: var(--accent-blue);
 }
 
-
-
 .booking__input {
   width: 100%;
 }
@@ -328,7 +325,8 @@ body {
 }
 
 .booking__input--people {
-  width: 1ch;
+  width: 0;
+  min-width: 1ch;
 }
 
 .booking__item--date {
@@ -837,6 +835,10 @@ body {
 
 .footer__copyright {
   font-size: 14px;
+}
+
+.focused {
+  border: 3px solid var(--accent-yellow);
 }
 
 @media (max-width: 1265px) {

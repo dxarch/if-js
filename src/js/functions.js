@@ -29,3 +29,32 @@ export const createNewHomesItem = (obj) => {
 
   return homeWrapper;
 };
+
+export const incrementFilterValue = (decrementBtn, incrementBtn, value, min, max) => {
+  value++;
+
+  if (value < max && value > min){
+    incrementBtn.classList.add('booking__filter-btn--active');
+    decrementBtn.classList.add('booking__filter-btn--active');
+    return value;
+  }
+
+  incrementBtn.classList.remove('booking__filter-btn--active');
+
+  return max;
+};
+
+export const decrementFilterValue = (decrementBtn, incrementBtn, value, min, max) => {
+  value--;
+
+  if (value > min && value < max){
+    incrementBtn.classList.add('booking__filter-btn--active');
+    decrementBtn.classList.add('booking__filter-btn--active');
+    return value;
+  }
+
+  decrementBtn.classList.remove('booking__filter-btn--active');
+  incrementBtn.classList.add('booking__filter-btn--active');
+
+  return min;
+};
