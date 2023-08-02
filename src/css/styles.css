@@ -174,7 +174,7 @@ body {
 
 .nav {
   min-height: 45px;
-  margin-bottom: 195px;
+  margin-bottom: 180px;
   align-items: center;
   justify-content: space-between;
 }
@@ -239,7 +239,7 @@ body {
   font-size: 18px;
   color: var(--main-text);
   border-radius: 8px;
-  margin-bottom: 120px;
+  margin-bottom: 130px;
 }
 
 .booking__item {
@@ -284,7 +284,7 @@ body {
   padding: 20px;
   background-color: var(--white);
   border-radius: var(--gap-sm);
-  right: 12px;
+  right: 0;
   top: calc(100% + 12px);
 }
 
@@ -292,6 +292,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 16px;
 }
 
 .booking__filter-controls {
@@ -314,18 +315,28 @@ body {
 
 .booking__filter-child-question {
   font-size: 12px;
-  margin-top: 30px;
-  margin-bottom: 12px;
+  margin-top: 15px;
 }
 
 .booking__filter-child-ages {
   width: 100px;
   padding: 8px 0 8px 8px;
+  color: #333333;
   font-size: 12px;
   display: flex;
   flex-direction: column;
   gap: var(--gap-md);
+  border: 1px solid #3077c6;
+  background-image: url(../images/filter-arrow.svg);
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 8px);
+  background-position-y: 12px;
 }
+
+.booking__filter-child-ages:focus {
+  border: 1px solid #3077c6;
+}
+
 
 .booking__input {
   width: 100%;

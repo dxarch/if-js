@@ -2,7 +2,10 @@ import { data } from './array.js';
 import {
   createNewHomesItem,
   incrementFilterValue,
-  decrementFilterValue, addChildrenDetails, addChildAge, removeChildAge,
+  decrementFilterValue,
+  addChildrenDetails,
+  addChildAge,
+  removeChildAge,
 } from './functions.js';
 
 const homesContainer = document.querySelector('.homes__slides');
@@ -28,7 +31,6 @@ booking.addEventListener('click', (e) => {
 
 bookingWrapper.forEach((wrapper) => {
   wrapper.addEventListener('click', (e) => {
-    console.log(e.target);
     e.currentTarget.classList.add('focused');
     bookingWrapper.forEach((other) => {
       if (other !== wrapper) {

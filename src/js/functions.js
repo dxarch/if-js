@@ -31,11 +31,11 @@ export const createNewHomesItem = (obj) => {
 };
 
 export const addChildrenDetails = (guestsFilter) => {
-  const detailsDescription = document.createElement("p");
-  detailsDescription.textContent = 'What is the age of the child you’re travelling with?';
+  const detailsDescription = document.createElement('p');
+  detailsDescription.textContent =
+    'What is the age of the child you’re travelling with?';
   detailsDescription.classList.add('booking__filter-child-question');
   guestsFilter.appendChild(detailsDescription);
-
 };
 
 export const addChildAge = (guestsFilter, minAge, maxAge) => {
