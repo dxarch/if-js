@@ -1,18 +1,12 @@
-import { data } from './array.js';
 import {
-  createNewHomesItem,
   incrementFilterValue,
   decrementFilterValue,
   addChildrenDetails,
   addChildAge,
-  removeChildAge,
+  removeChildAge, fetchAndShowHomes,
 } from './functions.js';
 
-const homesContainer = document.querySelector('.homes__slides');
-data.map((obj) => {
-  const home = createNewHomesItem(obj);
-  homesContainer.appendChild(home);
-});
+fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/popular');
 
 const booking = document.querySelector('.booking');
 const bookingGuests = document.querySelector('.booking__guests');
