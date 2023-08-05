@@ -94,8 +94,10 @@ bookingControls.forEach((group) => {
         childrenInput.value = value.toString();
         childrenInput.style.width = childrenInput.value.length + 'ch';
 
-        const hasAgeSelectors = guestsFilter.querySelectorAll('.booking__filter-child-ages').length > 0;
-        if (hasAgeSelectors){
+        const hasAgeSelectors =
+          guestsFilter.querySelectorAll('.booking__filter-child-ages').length >
+          0;
+        if (hasAgeSelectors) {
           removeChildAge(guestsFilter, value);
         }
         break;
