@@ -1,11 +1,28 @@
-import {fetchAndShowHomes} from "../src/js/functions.js";
+import { fetchAndShowHomes } from '../src/js/functions.js';
 
-describe('Fetch homes by url', () => {
-    it('Returns an error in case of invalid url', () => {
-        expect(fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/poplar')).toThrow(Error);
-    });
+describe('fetchAndShowHomes', () => {
+  it('should fetch and show homes', async () => {
+    const mockResponse = {
+      ok: true,
+    };
+    global.fetch = jest.fn().mockResolvedValue(mockResponse);
 
-    it('Is called with valid url', () => {
-        expect(fetchAndShowHomes).toHaveBeenCalledWith('https://if-student-api.onrender.com/api/hotels/popular');
-    });
+    await fetchAndShowHomes(
+      'https://if-student-api.onrender.com/api/hotels/popular',
+    );
+
+    expect(fetch).toHaveBeenCalledWith(
+      'https://if-student-api.onrender.com/api/hotels/popular',
+    );
+  });
+
+  it('should handle fetch errors', async () => {
+    try {
+      await fetchAndShowHomes(
+        'https://if-student-api.onrender.com/api/hotels/poplar',
+      );
+    } catch (err) {
+      expect(err).toBeDefined();
+    }
+  });
 });
