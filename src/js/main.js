@@ -88,7 +88,13 @@ bookingControls.forEach((group) => {
         value = decrementFilterValue(decrementBtn, incrementBtn, value, 0, 10);
         childrenInput.value = value.toString();
         childrenInput.style.width = childrenInput.value.length + 'ch';
-        removeChildAge(guestsFilter, value);
+
+        const hasAgeSelectors =
+          guestsFilter.querySelectorAll('.booking__filter-child-ages').length >
+          0;
+        if (hasAgeSelectors) {
+          removeChildAge(guestsFilter, value);
+        }
         break;
       case 'rooms-value':
         value = decrementFilterValue(decrementBtn, incrementBtn, value, 1, 30);
