@@ -3,7 +3,8 @@ import {
   decrementFilterValue,
   addChildrenDetails,
   addChildAge,
-  removeChildAge, fetchAndShowHomes,
+  removeChildAge,
+  fetchAndShowHomes,
 } from './functions.js';
 
 fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/popular');

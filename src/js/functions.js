@@ -34,21 +34,23 @@ export const fetchAndShowHomes = (url) => {
   const homesContainer = document.querySelector('.homes__slides');
 
   fetch(url)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error(`Fetch error! ${response.status} - ${response.statusText}`);
-        }
-      })
-      .then((data) => {
-        data.map((obj) => {
-          const home = createNewHomesItem(obj);
-          homesContainer.appendChild(home);
-        });
-      })
-      .catch((error) => console.log(error));
-}
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error(
+          `Fetch error! ${response.status} - ${response.statusText}`,
+        );
+      }
+    })
+    .then((data) => {
+      data.map((obj) => {
+        const home = createNewHomesItem(obj);
+        homesContainer.appendChild(home);
+      });
+    })
+    .catch((error) => console.log(error));
+};
 
 export const addChildrenDetails = (guestsFilter) => {
   const detailsDescription = document.createElement('p');
