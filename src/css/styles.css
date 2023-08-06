@@ -276,7 +276,6 @@ body {
 
 .booking__calendar {
   position: absolute;
-  display: flex;
   background-color: var(--white);
   border-radius: 8px;
   top: calc(100% + 12px);
@@ -325,6 +324,16 @@ body {
 .booking__calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+}
+
+.booking__calendar-number:hover {
+  background-color: var(--secondary-text);
+  cursor: pointer;
+}
+
+.booking__calendar--disabled {
+  pointer-events: none;
+  cursor: default;
 }
 
 .booking__guests-filter {
@@ -559,7 +568,6 @@ body {
 .slides__carousel--reviews {
   transform: translateY(-55%);
 }
-
 
 .slides__arrow--left {
   display: none;

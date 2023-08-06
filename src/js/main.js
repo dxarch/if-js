@@ -6,14 +6,19 @@ import {
   removeChildAge,
   fetchAndShowHomes,
 } from './functions.js';
+import {createCalendarMonth, getMonthData, monthClickEventListener} from "./calendar.js";
 
 fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/popular');
 
 const booking = document.querySelector('.booking');
 const bookingGuests = document.querySelector('.booking__guests');
 const guestsFilter = document.querySelector('.booking__guests-filter');
+const bookingCalendar = document.querySelector('.booking__calendar');
+const bookingCalendarMonths = document.querySelectorAll('.booking__calendar-month');
 const bookingWrapper = document.querySelectorAll('.booking__wrap');
 const bookingControls = document.querySelectorAll('.booking__filter-controls');
+
+
 booking.addEventListener('click', (e) => {
   if (
     !e.target.classList.contains('booking__wrap') ||
@@ -21,7 +26,13 @@ booking.addEventListener('click', (e) => {
   ) {
     bookingWrapper.forEach((item) => item.classList.remove('focused'));
     guestsFilter.classList.add('--hidden');
+    bookingCalendar.classList.add('--hidden');
   }
+});
+
+
+bookingCalendarMonths.forEach((month) => {
+  month.addEventListener('click', (e) => monthClickEventListener(e));
 });
 
 bookingWrapper.forEach((wrapper) => {
@@ -31,11 +42,14 @@ bookingWrapper.forEach((wrapper) => {
       if (other !== wrapper) {
         other.classList.remove('focused');
         guestsFilter.classList.add('--hidden');
+        bookingCalendar.classList.add('--hidden');
       }
     });
 
     if (e.currentTarget.classList.contains('booking__guests')) {
       guestsFilter.classList.remove('--hidden');
+    } else if (e.currentTarget.classList.contains('booking__dates')) {
+      bookingCalendar.classList.remove('--hidden');
     }
     e.stopPropagation();
   });
@@ -105,3 +119,4 @@ bookingControls.forEach((group) => {
     valueEl.textContent = value.toString();
   });
 });
+
