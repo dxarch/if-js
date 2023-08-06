@@ -241,8 +241,7 @@ const colorDatesBetweenSelected = (start, end, color) => {
     if (currentEl.nextElementSibling) {
       currentEl = currentEl.nextElementSibling;
     } else {
-      currentEl = months[1].querySelector('.booking__calendar-grid')
-        .lastElementChild.firstElementChild;
+      currentEl = months[1].querySelector('.booking__calendar-number');
     }
   }
 };
