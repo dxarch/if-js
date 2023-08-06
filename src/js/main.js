@@ -6,7 +6,11 @@ import {
   removeChildAge,
   fetchAndShowHomes,
 } from './functions.js';
-import {createCalendarMonth, getMonthData, monthClickEventListener} from "./calendar.js";
+import {
+  createCalendarMonth,
+  getMonthData,
+  monthClickEventListener,
+} from './calendar.js';
 
 fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/popular');
 
@@ -14,10 +18,11 @@ const booking = document.querySelector('.booking');
 const bookingGuests = document.querySelector('.booking__guests');
 const guestsFilter = document.querySelector('.booking__guests-filter');
 const bookingCalendar = document.querySelector('.booking__calendar');
-const bookingCalendarMonths = document.querySelectorAll('.booking__calendar-month');
+const bookingCalendarMonths = document.querySelectorAll(
+  '.booking__calendar-month',
+);
 const bookingWrapper = document.querySelectorAll('.booking__wrap');
 const bookingControls = document.querySelectorAll('.booking__filter-controls');
-
 
 booking.addEventListener('click', (e) => {
   if (
@@ -29,7 +34,6 @@ booking.addEventListener('click', (e) => {
     bookingCalendar.classList.add('--hidden');
   }
 });
-
 
 bookingCalendarMonths.forEach((month) => {
   month.addEventListener('click', (e) => monthClickEventListener(e));
@@ -119,4 +123,3 @@ bookingControls.forEach((group) => {
     valueEl.textContent = value.toString();
   });
 });
-
