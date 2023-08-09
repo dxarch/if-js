@@ -36,6 +36,11 @@ button {
   text-align: center;
 }
 
+select {
+  appearance: none;
+  outline: none;
+}
+
 a:link,
 a:hover,
 a:active,
