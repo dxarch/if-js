@@ -258,15 +258,12 @@ body {
   gap: calc(var(--gap-sm) / 2);
 }
 
-/*.booking__wrap:focus-within {*/
-/*  border: 3px solid var(--accent-yellow);*/
-/*}*/
-
 .booking__city {
   padding-left: 22px;
 }
 
 .booking__dates {
+  position: relative;
   border: 1px solid var(--inactive);
 }
 
@@ -277,9 +274,71 @@ body {
   padding-left: 15px;
 }
 
+.booking__calendar {
+  position: absolute;
+  background-color: var(--white);
+  border-radius: 8px;
+  top: calc(100% + 12px);
+  left: 0;
+}
+
+.booking__calendar-nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 27px 0 27px;
+}
+
+.booking__calendar-arrow {
+  color: var(--secondary-text);
+}
+
+.booking__calendar-arrow--left {
+  transform: rotateY(180deg);
+}
+
+.booking__calendar-heading {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 18px;
+}
+
+.booking__calendar-month {
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+  padding: 0 20px 20px;
+}
+
+.calendar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.booking__calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.booking__calendar-number:hover {
+  background-color: var(--secondary-text);
+  cursor: pointer;
+}
+
+.booking__calendar--disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 .booking__guests-filter {
   position: absolute;
-  gap: vaR(--gap-md);
+  gap: var(--gap-md);
   width: 260px;
   padding: 20px;
   background-color: var(--white);
@@ -514,6 +573,7 @@ body {
   display: none;
   position: absolute;
   left: -16px;
+  transform: rotate(-180deg);
 }
 
 .slides__arrow--right {
@@ -522,14 +582,14 @@ body {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.slides__arrow--left {
-  transform: rotate(-180deg);
-}
-
 .arrow__icon {
   margin: auto;
   width: 10px;
   height: 20px;
+}
+
+.arrow__icon--calendar {
+  height: 15px;
 }
 
 .arrow__icon--down {
@@ -552,7 +612,7 @@ body {
 }
 
 .slides__caption--secondary {
-  color: #bfbfbf;
+  color: var(--secondary-text);
 }
 
 .destinations {

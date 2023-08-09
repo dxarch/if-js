@@ -196,7 +196,7 @@
                   <input
                     class="booking__input booking__input--check-in"
                     id="check-in"
-                    value="Tue 15 Sept"
+                    value="Check-in"
                     disabled
                   />
                 </div>
@@ -212,9 +212,55 @@
                   <input
                     class="booking__input booking__input--check-out"
                     id="check-out"
-                    value="Sat 19 Sept"
+                    value="Check-out"
                     disabled
                   />
+                </div>
+                <div class="booking__calendar flex --hidden">
+                  <div class="booking__calendar-month">
+                    <div class="booking__calendar-grid">
+                      <ul class="booking__calendar-days">
+                        <li class="calendar-item">Mo</li>
+                        <li class="calendar-item">Tu</li>
+                        <li class="calendar-item">We</li>
+                        <li class="calendar-item">Th</li>
+                        <li class="calendar-item">Fr</li>
+                        <li class="calendar-item">Sa</li>
+                        <li class="calendar-item">Su</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="booking__calendar-month">
+                    <div class="booking__calendar-grid">
+                      <ul class="booking__calendar-days">
+                        <li class="calendar-item">Mo</li>
+                        <li class="calendar-item">Tu</li>
+                        <li class="calendar-item">We</li>
+                        <li class="calendar-item">Th</li>
+                        <li class="calendar-item">Fr</li>
+                        <li class="calendar-item">Sa</li>
+                        <li class="calendar-item">Su</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="booking__calendar-nav">
+                    <button
+                      class="booking__calendar-arrow booking__calendar-arrow--left"
+                    >
+                      <svg class="arrow__icon arrow__icon--calendar">
+                        <use
+                          href="src/images/sprites/icons.svg#arrow-right"
+                        ></use>
+                      </svg>
+                    </button>
+                    <button class="booking__calendar-arrow">
+                      <svg class="arrow__icon arrow__icon--calendar">
+                        <use
+                          href="src/images/sprites/icons.svg#arrow-right"
+                        ></use>
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div class="booking__guests booking__wrap col-lg-3 col-md-3">
