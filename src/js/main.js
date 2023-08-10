@@ -7,7 +7,7 @@ import {
 } from './guests-filter.js';
 import { monthClickEventListener } from './calendar.js';
 import { fetchAndShowHomes } from './homes.js';
-import {findHotels} from "./hotel-search.js";
+import { findHotels } from './hotel-search.js';
 
 fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/popular');
 
@@ -29,14 +29,19 @@ searchBtn.addEventListener('click', (e) => {
 
   const inputVal = cityInput.value;
   if (inputVal.length > 0) {
-    findHotels('https://if-student-api.onrender.com/api/hotels', inputVal.toLowerCase())
-        .then((hotelsSectionEl) => offerSectionEl.insertAdjacentElement('beforebegin', hotelsSectionEl))
-        .catch((error) => console.log(error));
+    findHotels(
+      'https://if-student-api.onrender.com/api/hotels',
+      inputVal.toLowerCase(),
+    )
+      .then((hotelsSectionEl) =>
+        offerSectionEl.insertAdjacentElement('beforebegin', hotelsSectionEl),
+      )
+      .catch((error) => console.log(error));
   }
 
   const availableHotelsEl = document.querySelector('.hotels');
   if (availableHotelsEl) {
-    availableHotelsEl.scrollIntoView({behavior: "smooth"});
+    availableHotelsEl.scrollIntoView({ behavior: 'smooth' });
   }
 });
 
