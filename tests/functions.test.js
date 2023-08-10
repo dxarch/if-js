@@ -1,4 +1,4 @@
-import { fetchAndShowHomes } from '../src/js/functions.js';
+import { fetchAndShowHomes } from '../src/js/guests-filter.js';
 
 describe('fetchAndShowHomes', () => {
   it('should fetch and show homes', async () => {

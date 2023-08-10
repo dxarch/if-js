@@ -4,13 +4,11 @@ import {
   addChildrenDetails,
   addChildAge,
   removeChildAge,
-  fetchAndShowHomes,
-} from './functions.js';
+} from './guests-filter.js';
 import {
-  createCalendarMonth,
-  getMonthData,
   monthClickEventListener,
 } from './calendar.js';
+import {fetchAndShowHomes} from "./homes.js";
 
 fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/popular');
 

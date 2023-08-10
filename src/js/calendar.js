@@ -89,6 +89,7 @@ export const getMonthData = () => {
 export const createCalendarMonth = (monthData, calendarMonthEls) => {
   let isAfterCurrentDay = false;
   let isCurrentMonthPassed = false;
+
   calendarMonthEls.forEach((calendarMonthEl, i) => {
     const month = getCalendarMonth(
       monthData[i].numberOfDays,
@@ -107,8 +108,8 @@ export const createCalendarMonth = (monthData, calendarMonthEls) => {
     const daysListEl = document.createElement('ul');
     daysListEl.classList.add('booking__calendar-days');
 
-    month.map((week, weekIdx) => {
-      week.map((dayObj, dayIdx) => {
+    month.map((week) => {
+      week.map((dayObj) => {
         const calendarDayLiEl = document.createElement('li');
         if (!dayObj.notCurrentMonth) {
           calendarDayLiEl.classList.add(
@@ -133,15 +134,13 @@ export const createCalendarMonth = (monthData, calendarMonthEls) => {
   });
 };
 
-const bookingCalendar = document.querySelector('.booking__calendar');
 const bookingCalendarMonths = document.querySelectorAll(
   '.booking__calendar-month',
 );
 const monthData = getMonthData();
 createCalendarMonth(monthData, bookingCalendarMonths);
 
-let isFirstDateClicked = false;
-let isSecondDateClicked = false;
+
 let firstSelectedDate;
 let secondSelectedDate;
 let firstSelectedDateEl;
@@ -150,20 +149,18 @@ const checkInInput = document.querySelector('#check-in');
 const checkOutInput = document.querySelector('#check-out');
 export const monthClickEventListener = (e) => {
   let currentMonth, currentYear, currentDay;
+
   if (e.target.classList.contains('booking__calendar-number')) {
-    switch (e.currentTarget) {
-      case bookingCalendarMonths[0]:
-        currentMonth = monthData[0].monthNumber;
-        currentYear = monthData[0].year;
-        break;
-      case bookingCalendarMonths[1]:
-        currentMonth = monthData[1].monthNumber;
-        currentYear = monthData[1].year;
-        break;
+
+    const monthIdx = Array.from(bookingCalendarMonths).indexOf(e.currentTarget);
+    if (monthIdx !== -1) {
+      currentMonth = monthData[monthIdx].monthNumber;
+      currentYear = monthData[monthIdx].year;
     }
+
     currentDay = e.target.textContent;
 
-    if (!isFirstDateClicked) {
+    if (!firstSelectedDate) {
       firstSelectedDate = new Date(
         currentYear,
         currentMonth - 1,
@@ -172,12 +169,11 @@ export const monthClickEventListener = (e) => {
       checkInInput.value = `${currentDay.padStart(2, '0')}.${currentMonth
         .toString()
         .padStart(2, '0')}.${currentYear}`;
-      isFirstDateClicked = true;
       firstSelectedDateEl = e.target;
 
       e.target.style.backgroundColor = '#3077C6';
       e.target.style.color = '#ffffff';
-    } else if (isFirstDateClicked && !isSecondDateClicked) {
+    } else if (firstSelectedDate && !secondSelectedDate) {
       secondSelectedDate = new Date(
         currentYear,
         currentMonth - 1,
@@ -193,31 +189,32 @@ export const monthClickEventListener = (e) => {
 
         firstSelectedDateEl = secondSelectedDateEl;
         firstSelectedDate = secondSelectedDate;
-        secondSelectedDateEl = undefined;
-        secondSelectedDate = undefined;
+        secondSelectedDateEl = null;
+        secondSelectedDate = null;
         checkInInput.value = `${currentDay.padStart(2, '0')}.${currentMonth
           .toString()
           .padStart(2, '0')}.${currentYear}`;
       } else {
-        isSecondDateClicked = true;
         checkOutInput.value = `${currentDay.padStart(2, '0')}.${currentMonth
           .toString()
           .padStart(2, '0')}.${currentYear}`;
-        console.dir(firstSelectedDateEl);
+
         colorDatesBetweenSelected(
           firstSelectedDateEl,
           secondSelectedDateEl,
           '#F3F3F4',
         );
       }
-    } else if (isFirstDateClicked && isSecondDateClicked) {
+    } else if (firstSelectedDate && secondSelectedDate) {
       colorDatesBetweenSelected(
         firstSelectedDateEl,
         secondSelectedDateEl,
         'inherit',
       );
-      isFirstDateClicked = false;
-      isSecondDateClicked = false;
+
+      firstSelectedDate = null;
+      secondSelectedDate = null;
+
       secondSelectedDateEl.style.backgroundColor = 'inherit';
       secondSelectedDateEl.style.color = 'inherit';
       firstSelectedDateEl.style.backgroundColor = 'inherit';
