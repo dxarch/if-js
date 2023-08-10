@@ -24,28 +24,30 @@ const searchBtn = booking.querySelector('.booking__button');
 const cityInput = booking.querySelector('#city');
 const offerSectionEl = document.querySelector('.offer');
 
-searchBtn.addEventListener('click', (e) => {
+searchBtn.addEventListener('click', async (e) => {
+  console.log("Search btn click");
   e.preventDefault();
 
   const inputVal = cityInput.value;
   if (inputVal.length > 0) {
-    findHotels(
-      'https://if-student-api.onrender.com/api/hotels',
-      inputVal.toLowerCase(),
+    await findHotels(
+        'https://if-student-api.onrender.com/api/hotels',
+        inputVal.toLowerCase(),
     )
-      .then((hotelsSectionEl) =>
-        offerSectionEl.insertAdjacentElement('beforebegin', hotelsSectionEl),
-      )
-      .catch((error) => console.log(error));
+        .then((hotelsSectionEl) =>
+            offerSectionEl.insertAdjacentElement('beforebegin', hotelsSectionEl),
+        )
+        .catch((error) => console.log(error));
   }
 
   const availableHotelsEl = document.querySelector('.hotels');
   if (availableHotelsEl) {
-    availableHotelsEl.scrollIntoView({ behavior: 'smooth' });
+    availableHotelsEl.scrollIntoView({behavior: 'smooth'});
   }
 });
 
 booking.addEventListener('click', (e) => {
+  console.log("Booking click");
   if (
     !e.target.classList.contains('booking__wrap') ||
     !e.target.classList.contains('booking__input')
