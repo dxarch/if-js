@@ -168,6 +168,11 @@ body {
   color: var(--white);
 }
 
+.hotels {
+  order: 2;
+  background-color: var(--bg-main);
+}
+
 .wrapper--top {
   padding-top: 50px;
 }
@@ -402,6 +407,7 @@ body {
 
 .booking__input--check-in {
   padding-right: 0;
+  width: 7ch;
 }
 
 .booking__input--check-out {
@@ -496,6 +502,18 @@ body {
   height: 4px;
 }
 
+.heading--hotels {
+  margin-bottom: 20px;
+}
+
+.hotels__results {
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 10px;
+}
+
 .offer__block {
   align-items: baseline;
   gap: var(--gap-lg);
@@ -525,6 +543,7 @@ body {
 
 .slides {
   display: flex;
+  justify-content: center;
   overflow: hidden;
   position: relative;
   gap: 16px;
@@ -570,10 +589,10 @@ body {
 }
 
 .slides__arrow--left {
-  display: none;
   position: absolute;
   left: -16px;
   transform: rotate(-180deg);
+  filter: drop-shadow(0px -4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .slides__arrow--right {

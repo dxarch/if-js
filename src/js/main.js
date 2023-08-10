@@ -5,10 +5,9 @@ import {
   addChildAge,
   removeChildAge,
 } from './guests-filter.js';
-import {
-  monthClickEventListener,
-} from './calendar.js';
-import {fetchAndShowHomes} from "./homes.js";
+import { monthClickEventListener } from './calendar.js';
+import { fetchAndShowHomes } from './homes.js';
+import {findHotels} from "./hotel-search.js";
 
 fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/popular');
 
@@ -21,6 +20,25 @@ const bookingCalendarMonths = document.querySelectorAll(
 );
 const bookingWrapper = document.querySelectorAll('.booking__wrap');
 const bookingControls = document.querySelectorAll('.booking__filter-controls');
+const searchBtn = booking.querySelector('.booking__button');
+const cityInput = booking.querySelector('#city');
+const offerSectionEl = document.querySelector('.offer');
+
+searchBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const inputVal = cityInput.value;
+  if (inputVal.length > 0) {
+    findHotels('https://if-student-api.onrender.com/api/hotels', inputVal.toLowerCase())
+        .then((hotelsSectionEl) => offerSectionEl.insertAdjacentElement('beforebegin', hotelsSectionEl))
+        .catch((error) => console.log(error));
+  }
+
+  const availableHotelsEl = document.querySelector('.hotels');
+  if (availableHotelsEl) {
+    availableHotelsEl.scrollIntoView({behavior: "smooth"});
+  }
+});
 
 booking.addEventListener('click', (e) => {
   if (

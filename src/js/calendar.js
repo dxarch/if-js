@@ -140,7 +140,6 @@ const bookingCalendarMonths = document.querySelectorAll(
 const monthData = getMonthData();
 createCalendarMonth(monthData, bookingCalendarMonths);
 
-
 let firstSelectedDate;
 let secondSelectedDate;
 let firstSelectedDateEl;
@@ -151,7 +150,6 @@ export const monthClickEventListener = (e) => {
   let currentMonth, currentYear, currentDay;
 
   if (e.target.classList.contains('booking__calendar-number')) {
-
     const monthIdx = Array.from(bookingCalendarMonths).indexOf(e.currentTarget);
     if (monthIdx !== -1) {
       currentMonth = monthData[monthIdx].monthNumber;
