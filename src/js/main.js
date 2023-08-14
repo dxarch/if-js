@@ -6,7 +6,8 @@ import {
   removeChildAge,
   monthClickEventListener,
   fetchHomes,
-  findHotels, showHomes,
+  findHotels,
+  showHomes,
 } from './index.js';
 
 const homesContainer = document.querySelector('.homes__slides');
