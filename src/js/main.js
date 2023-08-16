@@ -4,12 +4,17 @@ import {
   addChildrenDetails,
   addChildAge,
   removeChildAge,
-} from './guests-filter.js';
-import { monthClickEventListener } from './calendar.js';
-import { fetchAndShowHomes } from './homes.js';
-import { findHotels } from './hotel-search.js';
+  monthClickEventListener,
+  fetchHomes,
+  findHotels,
+  showHomes,
+} from './index.js';
 
-fetchAndShowHomes('https://if-student-api.onrender.com/api/hotels/popular');
+const homesContainer = document.querySelector('.homes__slides');
+const data = await fetchHomes(
+  'https://if-student-api.onrender.com/api/hotels/popular',
+).catch((e) => console.log(e));
+showHomes(homesContainer, data);
 
 const booking = document.querySelector('.booking');
 const bookingGuests = document.querySelector('.booking__guests');

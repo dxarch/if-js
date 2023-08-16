@@ -30,24 +30,31 @@ export const createNewHomesItem = (obj) => {
   return homeWrapper;
 };
 
-export const fetchAndShowHomes = (url) => {
-  const homesContainer = document.querySelector('.homes__slides');
+export const showHomes = (homesContainer, homes) => {
+  homes.map((obj) => {
+    const home = createNewHomesItem(obj);
+    homesContainer.appendChild(home);
+  });
+};
 
-  fetch(url)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error(
-          `Fetch error! ${response.status} - ${response.statusText}`,
-        );
-      }
-    })
-    .then((data) => {
-      data.map((obj) => {
-        const home = createNewHomesItem(obj);
-        homesContainer.appendChild(home);
-      });
-    })
-    .catch((error) => console.log(error));
+export const fetchHomes = async (url) => {
+  if (!sessionStorage.getItem('homesData')) {
+    const response = await fetch(url, {
+      method: 'GET',
+    });
+    let result;
+
+    if (response.ok) {
+      result = await response.json();
+    } else {
+      throw new Error(
+        `Fetch error! ${response.status} - ${response.statusText}`,
+      );
+    }
+
+    sessionStorage.setItem('homesData', JSON.stringify(result));
+    return result;
+  } else {
+    return JSON.parse(sessionStorage.getItem('homesData'));
+  }
 };

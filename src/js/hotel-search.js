@@ -1,5 +1,8 @@
 export const findHotels = async (url, queryLowercase) => {
-  const response = await fetch(`${url}?search=${queryLowercase}`, {
+  const fetchUrl = new URL(url);
+  fetchUrl.searchParams.set('search', queryLowercase);
+
+  const response = await fetch(fetchUrl.toString(), {
     method: 'GET',
     'content-type': 'application/json',
   });
@@ -13,10 +16,6 @@ export const findHotels = async (url, queryLowercase) => {
     ];
     return details.some((el) => el.includes(queryLowercase));
   });
-
-  // if (filteredData.length === 0) {
-  //     return Promise.reject('No results');
-  // }
 
   const prevHotels = document.querySelector('.hotels');
   if (prevHotels) {
