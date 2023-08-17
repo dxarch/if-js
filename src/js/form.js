@@ -21,7 +21,6 @@ fileInput.addEventListener('change', async (e) => {
     formImage.innerHTML = `File is not an image: ${file.name}`;
     fileInput.value = '';
   }
-
 });
 
 formImage.addEventListener('click', (e) => {
