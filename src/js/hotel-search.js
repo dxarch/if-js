@@ -1,4 +1,10 @@
-export const findHotels = async (url, queryLowercase, adults, children, rooms) => {
+export const findHotels = async (
+  url,
+  queryLowercase,
+  adults,
+  children,
+  rooms,
+) => {
   const fetchUrl = new URL(url);
   fetchUrl.searchParams.set('search', queryLowercase);
   fetchUrl.searchParams.set('adults', adults);
