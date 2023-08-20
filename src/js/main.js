@@ -18,6 +18,9 @@ showHomes(homesContainer, data);
 
 const booking = document.querySelector('.booking');
 const bookingGuests = document.querySelector('.booking__guests');
+const adultsInput = bookingGuests.querySelector('#adults');
+const childrenInput = bookingGuests.querySelector('#children');
+const roomsInput = bookingGuests.querySelector('#rooms');
 const guestsFilter = document.querySelector('.booking__guests-filter');
 const bookingCalendar = document.querySelector('.booking__calendar');
 const bookingCalendarMonths = document.querySelectorAll(
@@ -30,14 +33,36 @@ const cityInput = booking.querySelector('#city');
 const offerSectionEl = document.querySelector('.offer');
 
 searchBtn.addEventListener('click', async (e) => {
-  console.log('Search btn click');
   e.preventDefault();
 
-  const inputVal = cityInput.value;
-  if (inputVal.length > 0) {
+  const cityVal = cityInput.value;
+  const adultsVal = adultsInput.value;
+  const roomsVal = roomsInput.value;
+  const childrenVal = childrenInput.value;
+
+  const childrenAgesEls =
+    childrenVal > 0
+      ? document.querySelectorAll('.booking__filter-child-ages')
+      : null;
+  let childrenAgesStr;
+
+  if (childrenAgesEls.length > 1) {
+    const childrenAgesArr = [];
+    childrenAgesEls.forEach((age) =>
+      childrenAgesArr.push(age.value.match(/\d+/)[0]),
+    );
+    childrenAgesStr = childrenAgesArr.join(',');
+  } else if (childrenAgesEls.length === 1) {
+    childrenAgesStr = childrenVal;
+  }
+
+  if (cityVal.length > 0) {
     await findHotels(
       'https://if-student-api.onrender.com/api/hotels',
-      inputVal.toLowerCase(),
+      cityVal.toLowerCase(),
+      adultsVal,
+      childrenAgesStr,
+      roomsVal,
     )
       .then((hotelsSectionEl) =>
         offerSectionEl.insertAdjacentElement('beforebegin', hotelsSectionEl),
@@ -52,7 +77,6 @@ searchBtn.addEventListener('click', async (e) => {
 });
 
 booking.addEventListener('click', (e) => {
-  console.log('Booking click');
   if (
     !e.target.classList.contains('booking__wrap') ||
     !e.target.classList.contains('booking__input')
@@ -92,9 +116,6 @@ bookingControls.forEach((group) => {
   const decrementBtn = group.querySelector('.booking__filter-btn--decrement');
   const valueEl = group.querySelector('.booking__filter-value');
   const valueId = valueEl.id;
-  const adultsInput = bookingGuests.querySelector('#adults');
-  const childrenInput = bookingGuests.querySelector('#children');
-  const roomsInput = bookingGuests.querySelector('#rooms');
 
   incrementBtn.addEventListener('click', (e) => {
     e.preventDefault();
