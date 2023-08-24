@@ -102,7 +102,7 @@
 }
 
 .loader::after {
-  content: "";
+  content: '';
   width: 75px;
   height: 75px;
   border: 8px solid var(--accent-blue);

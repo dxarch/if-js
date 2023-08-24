@@ -9,4 +9,3 @@ export const removeLoader = (elToRemoveFrom) => {
   const loader = document.querySelector('.loader');
   elToRemoveFrom.removeChild(loader);
 };
-

@@ -5,7 +5,6 @@ export const findHotels = async (
   children,
   rooms,
 ) => {
-
   const fetchUrl = new URL(url);
   fetchUrl.searchParams.set('search', queryLowercase);
   fetchUrl.searchParams.set('adults', adults);
