@@ -8,6 +8,8 @@ import {
   fetchHomes,
   findHotels,
   showHomes,
+  showLoader,
+  removeLoader,
 } from './index.js';
 
 const homesContainer = document.querySelector('.homes__slides');
@@ -46,17 +48,22 @@ searchBtn.addEventListener('click', async (e) => {
       : null;
   let childrenAgesStr;
 
-  if (childrenAgesEls.length > 1) {
-    const childrenAgesArr = [];
-    childrenAgesEls.forEach((age) =>
-      childrenAgesArr.push(age.value.match(/\d+/)[0]),
-    );
-    childrenAgesStr = childrenAgesArr.join(',');
-  } else if (childrenAgesEls.length === 1) {
-    childrenAgesStr = childrenVal;
+  if (childrenAgesEls) {
+    if (childrenAgesEls.length > 1) {
+      const childrenAgesArr = [];
+      childrenAgesEls.forEach((age) =>
+        childrenAgesArr.push(age.value.match(/\d+/)[0]),
+      );
+      childrenAgesStr = childrenAgesArr.join(',');
+    } else if (childrenAgesEls.length === 1) {
+      childrenAgesStr = childrenAgesEls[0].value.match(/\d+/)[0];
+    }
   }
 
   if (cityVal.length > 0) {
+    const topSection = document.querySelector('.top');
+    showLoader(topSection);
+
     await findHotels(
       'https://if-student-api.onrender.com/api/hotels',
       cityVal.toLowerCase(),
@@ -67,7 +74,8 @@ searchBtn.addEventListener('click', async (e) => {
       .then((hotelsSectionEl) =>
         offerSectionEl.insertAdjacentElement('beforebegin', hotelsSectionEl),
       )
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => removeLoader(topSection));
   }
 
   const availableHotelsEl = document.querySelector('.hotels');
