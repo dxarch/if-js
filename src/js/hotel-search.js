@@ -1,6 +1,16 @@
-export const findHotels = async (url, queryLowercase) => {
+export const findHotels = async (
+  url,
+  queryLowercase,
+  adults,
+  children,
+  rooms,
+) => {
   const fetchUrl = new URL(url);
   fetchUrl.searchParams.set('search', queryLowercase);
+  fetchUrl.searchParams.set('adults', adults);
+  fetchUrl.searchParams.set('children', children);
+  fetchUrl.searchParams.set('rooms', rooms);
+  console.log(fetchUrl);
 
   const response = await fetch(fetchUrl.toString(), {
     method: 'GET',

@@ -46,15 +46,34 @@ export const fetchHomes = async (url) => {
 
     if (response.ok) {
       result = await response.json();
+      console.log('fetch result', result);
     } else {
       throw new Error(
         `Fetch error! ${response.status} - ${response.statusText}`,
       );
     }
-
+    result = sortHomes(result);
     sessionStorage.setItem('homesData', JSON.stringify(result));
     return result;
   } else {
     return JSON.parse(sessionStorage.getItem('homesData'));
   }
+};
+
+const sortHomes = (homesArr) => {
+  let swapped = false;
+  do {
+    swapped = false;
+
+    for (let i = 0; i < homesArr.length - 1; i++) {
+      if (homesArr[i].name > homesArr[i + 1].name) {
+        const tmp = homesArr[i + 1];
+        homesArr[i + 1] = homesArr[i];
+        homesArr[i] = tmp;
+        swapped = true;
+      }
+    }
+  } while (swapped);
+
+  return homesArr;
 };
