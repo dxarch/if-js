@@ -20,6 +20,7 @@ showHomes(homesContainer, data);
 
 const booking = document.querySelector('.booking');
 const bookingGuests = document.querySelector('.booking__guests');
+const bookingInputs = booking.querySelectorAll('.booking__input');
 const adultsInput = bookingGuests.querySelector('#adults');
 const childrenInput = bookingGuests.querySelector('#children');
 const roomsInput = bookingGuests.querySelector('#rooms');

@@ -315,6 +315,7 @@ body {
 
 .booking__calendar {
   position: absolute;
+  z-index: 1;
   background-color: var(--white);
   border-radius: 8px;
   top: calc(100% + 12px);
@@ -384,6 +385,7 @@ body {
   border-radius: var(--gap-sm);
   right: 0;
   top: calc(100% + 12px);
+  z-index: 1;
 }
 
 .booking__filter-item {
@@ -1158,7 +1160,7 @@ body {
   }
 
   .wrapper {
-    padding: 0 16px 0;
+    padding: 40px 16px;
     max-width: 688px;
     width: 100%;
     margin: 0 auto;
@@ -1330,10 +1332,6 @@ body {
     display: block;
     width: 16px;
     height: 16px;
-  }
-
-  .offer {
-    order: 1;
   }
 
   .offer__wrapper {
