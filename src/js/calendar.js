@@ -2,13 +2,7 @@ const getCalendarMonth = (
   daysInMonth = 30,
   daysInWeek = 7,
   firstDayInMonthIdx = 4,
-  checkInDate = '06/11/1973',
-  checkOutDate = '14/11/1973',
 ) => {
-  if (firstDayInMonthIdx > daysInWeek) {
-    throw new Error('Wrong first day index!');
-  }
-
   const weeks = Math.round(daysInMonth / daysInWeek) + 1;
   const calendar = [];
   const dayToday = new Date().getDate();
@@ -43,13 +37,6 @@ const getCalendarMonth = (
 
       if (day === dayToday) {
         dayObj.currentDay = true;
-      }
-
-      if (
-        day === Number(checkInDate.split('/')[0]) ||
-        day === Number(checkOutDate.split('/')[0])
-      ) {
-        dayObj.selectedDay = true;
       }
 
       week.push(dayObj);
@@ -87,8 +74,8 @@ export const getMonthData = () => {
 };
 
 export const createCalendarMonth = (monthData, calendarMonthEls) => {
-  let isAfterCurrentDay = false;
   let isCurrentMonthPassed = false;
+  const today = new Date().getDate();
 
   calendarMonthEls.forEach((calendarMonthEl, i) => {
     const month = getCalendarMonth(
@@ -96,6 +83,7 @@ export const createCalendarMonth = (monthData, calendarMonthEls) => {
       7,
       monthData[i].firstDayIdx,
     );
+
     const calendarGridEl = calendarMonthEl.querySelector(
       '.booking__calendar-grid',
     );
@@ -120,8 +108,7 @@ export const createCalendarMonth = (monthData, calendarMonthEls) => {
 
           if (dayObj.currentDay && !isCurrentMonthPassed) {
             calendarDayLiEl.style.color = '#3077c6';
-            isAfterCurrentDay = true;
-          } else if (!isAfterCurrentDay && !isCurrentMonthPassed) {
+          } else if (dayObj.dayOfMonth < today && !isCurrentMonthPassed) {
             calendarDayLiEl.style.color = '#bfbfbf';
             calendarDayLiEl.classList.add('booking__calendar--disabled');
           }
@@ -129,8 +116,8 @@ export const createCalendarMonth = (monthData, calendarMonthEls) => {
         daysListEl.appendChild(calendarDayLiEl);
       });
       calendarGridEl.appendChild(daysListEl);
-      isCurrentMonthPassed = true;
     });
+    isCurrentMonthPassed = true;
   });
 };
 
@@ -164,6 +151,8 @@ export const monthClickEventListener = (e) => {
         currentMonth - 1,
         parseInt(e.target.textContent),
       );
+
+      console.log('first date', firstSelectedDate.getMonth());
       checkInInput.value = `${currentDay.padStart(2, '0')}.${currentMonth
         .toString()
         .padStart(2, '0')}.${currentYear}`;
@@ -223,6 +212,8 @@ export const monthClickEventListener = (e) => {
       monthClickEventListener(e);
     }
   }
+  checkInInput.style.width = checkInInput.value.length + 'ch';
+  checkOutInput.style.width = checkOutInput.value.length + 'ch';
 };
 
 const colorDatesBetweenSelected = (start, end, color) => {

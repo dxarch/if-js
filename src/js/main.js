@@ -20,9 +20,12 @@ showHomes(homesContainer, data);
 
 const booking = document.querySelector('.booking');
 const bookingGuests = document.querySelector('.booking__guests');
+const bookingInputs = booking.querySelectorAll('.booking__input');
 const adultsInput = bookingGuests.querySelector('#adults');
 const childrenInput = bookingGuests.querySelector('#children');
 const roomsInput = bookingGuests.querySelector('#rooms');
+const checkInInput = booking.querySelector('#check-in');
+const checkOutInput = booking.querySelector('#check-out');
 const guestsFilter = document.querySelector('.booking__guests-filter');
 const bookingCalendar = document.querySelector('.booking__calendar');
 const bookingCalendarMonths = document.querySelectorAll(
@@ -34,19 +37,25 @@ const searchBtn = booking.querySelector('.booking__button');
 const cityInput = booking.querySelector('#city');
 const offerSectionEl = document.querySelector('.offer');
 
+const parseInputDate = (dateString) => {
+  const regex = /(\d+)\.(\d+)\.(\d+)/;
+  return dateString.replace(regex, '$2/$1/$3');
+};
 searchBtn.addEventListener('click', async (e) => {
   e.preventDefault();
-
+  console.log('click');
   const cityVal = cityInput.value;
   const adultsVal = adultsInput.value;
   const roomsVal = roomsInput.value;
   const childrenVal = childrenInput.value;
+  let checkInDateVal = checkInInput.value;
+  let checkOutDateVal = checkOutInput.value;
 
   const childrenAgesEls =
     childrenVal > 0
       ? document.querySelectorAll('.booking__filter-child-ages')
       : null;
-  let childrenAgesStr;
+  let childrenAgesStr = '0';
 
   if (childrenAgesEls) {
     if (childrenAgesEls.length > 1) {
@@ -60,9 +69,21 @@ searchBtn.addEventListener('click', async (e) => {
     }
   }
 
-  if (cityVal.length > 0) {
+  const areInputsFilled =
+    cityVal &&
+    adultsVal &&
+    roomsVal &&
+    checkInDateVal !== 'Check-in' &&
+    checkOutDateVal !== 'Check-out';
+  if (areInputsFilled) {
     const topSection = document.querySelector('.top');
     showLoader(topSection);
+
+    checkInDateVal = parseInputDate(checkInDateVal);
+    checkOutDateVal = parseInputDate(checkOutDateVal);
+
+    const checkInTimestamp = new Date(checkInDateVal).getTime();
+    const checkOutTimestamp = new Date(checkOutDateVal).getTime();
 
     await findHotels(
       'https://if-student-api.onrender.com/api/hotels',
@@ -70,16 +91,16 @@ searchBtn.addEventListener('click', async (e) => {
       adultsVal,
       childrenAgesStr,
       roomsVal,
+      checkInTimestamp,
+      checkOutTimestamp,
     )
       .then((hotelsSectionEl) =>
         offerSectionEl.insertAdjacentElement('beforebegin', hotelsSectionEl),
       )
       .catch((error) => console.log(error))
       .finally(() => removeLoader(topSection));
-  }
 
-  const availableHotelsEl = document.querySelector('.hotels');
-  if (availableHotelsEl) {
+    const availableHotelsEl = document.querySelector('.hotels');
     availableHotelsEl.scrollIntoView({ behavior: 'smooth' });
   }
 });

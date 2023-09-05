@@ -4,12 +4,17 @@ export const findHotels = async (
   adults,
   children,
   rooms,
+  dateFrom,
+  dateTo,
 ) => {
   const fetchUrl = new URL(url);
   fetchUrl.searchParams.set('search', queryLowercase);
   fetchUrl.searchParams.set('adults', adults);
   fetchUrl.searchParams.set('children', children);
   fetchUrl.searchParams.set('rooms', rooms);
+  fetchUrl.searchParams.set('dateFrom', dateFrom);
+  fetchUrl.searchParams.set('dateTo', dateTo);
+
   console.log(fetchUrl);
 
   const response = await fetch(fetchUrl.toString(), {
