@@ -151,6 +151,8 @@ export const monthClickEventListener = (e) => {
         currentMonth - 1,
         parseInt(e.target.textContent),
       );
+
+      console.log('first date', firstSelectedDate.getMonth());
       checkInInput.value = `${currentDay.padStart(2, '0')}.${currentMonth
         .toString()
         .padStart(2, '0')}.${currentYear}`;

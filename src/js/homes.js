@@ -1,4 +1,4 @@
-export const createNewHomesItem = (obj) => {
+export const createNewHomesItem = (obj) => { //homesView
   const { name, city, country, imageUrl } = obj;
 
   const homeWrapper = document.createElement('figure');
@@ -28,14 +28,14 @@ export const createNewHomesItem = (obj) => {
   homeWrapper.appendChild(location);
 
   return homeWrapper;
-};
+}; //homesView
 
 export const showHomes = (homesContainer, homes) => {
   homes.map((obj) => {
     const home = createNewHomesItem(obj);
     homesContainer.appendChild(home);
   });
-};
+}; //homesView
 
 export const fetchHomes = async (url) => {
   if (!sessionStorage.getItem('homesData')) {
@@ -58,7 +58,7 @@ export const fetchHomes = async (url) => {
   } else {
     return JSON.parse(sessionStorage.getItem('homesData'));
   }
-};
+}; //homesmodel
 
 const sortHomes = (homesArr) => {
   let swapped = false;
@@ -76,4 +76,4 @@ const sortHomes = (homesArr) => {
   } while (swapped);
 
   return homesArr;
-};
+}; //homesModel

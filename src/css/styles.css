@@ -406,11 +406,13 @@ body {
   height: 30px;
   border: 1px solid var(--inactive);
   color: var(--inactive);
+  cursor: default;
 }
 
 .booking__filter-btn--active {
   border: 1px solid var(--accent-blue);
   color: var(--accent-blue);
+  cursor: pointer;
 }
 
 .booking__filter-child-question {
@@ -421,6 +423,7 @@ body {
 .booking__filter-child-ages {
   width: 100px;
   padding: 8px 0 8px 8px;
+  cursor: pointer;
   color: #333333;
   font-size: 12px;
   display: flex;
@@ -461,8 +464,13 @@ body {
 
 .label__booking {
   color: var(--main-text);
+  cursor: pointer;
   font-size: 18px;
   order: 2;
+}
+
+.dash {
+  cursor: pointer;
 }
 
 .booking__header--mb {

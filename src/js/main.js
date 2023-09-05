@@ -43,7 +43,7 @@ const parseInputDate = (dateString) => {
 };
 searchBtn.addEventListener('click', async (e) => {
   e.preventDefault();
-
+  console.log('click');
   const cityVal = cityInput.value;
   const adultsVal = adultsInput.value;
   const roomsVal = roomsInput.value;
